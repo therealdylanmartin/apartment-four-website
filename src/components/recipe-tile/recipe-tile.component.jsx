@@ -1,5 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import './recipe-tile.styles.scss';
+
 const RecipeTile = ({ recipe }) => {
   // destructure properties off recipe object
   const { title, image, totalTime, rating } = recipe;
@@ -47,8 +49,7 @@ const RecipeTile = ({ recipe }) => {
 
   return (
     <a className="grid__tile-container" href={`/recipes/${recipeSlug}`}>
-      <div className="grid__tile">
-        <img className="recipe__image" src={image.path} alt={image.altText} />
+      <div className="grid__tile" style={{ backgroundImage: `url(${image.path})` }}>
         <p className="recipe__time">{totalTime}m</p>
         <h6 className="recipe__rating" aria-label={`Rated ${rating.score} stars from ${rating.numScored} reviews`}>
           {renderStars(rating.score)}

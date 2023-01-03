@@ -1,0 +1,44 @@
+.grid__tile-container {
+  flex: 1 0 165px;
+  margin-left: 7.5px;
+  margin-right: 7.5px;
+  margin-bottom: 15px;
+  text-decoration: none;
+}
+
+.grid__tile {
+  background-position: center center;
+  background-size: cover;
+  border-radius: 10px;
+  box-shadow: 0 0 8px 0 #6F6F6F1a;
+  -webkit-box-shadow: 0 0 8px 0 #6F6F6F1a;
+  -moz-box-shadow: 0 0 8px 0 #6F6F6F1a;
+  height: 246px;
+  overflow: hidden;
+  position: relative;
+}
+
+.recipe__time {
+  color: var(--color-near-black);
+  font-size: .94em;
+  font-weight: 400;
+  margin: 0;
+  position: absolute;
+  bottom: 12px;
+  left: 7px;
+}
+
+.recipe__rating {
+  color: var(--color-star);
+  font-size: .95em;
+  margin: 0;
+  position: absolute;
+  bottom: 12px;
+  right: 7px;
+}
+
+.recipe__title {
+  color: var(--color-primary);
+  font-size: 1.13em;
+  margin: 7px 0 0;
+}

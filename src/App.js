@@ -1,7 +1,9 @@
-// Header, Footer, and Page components
-import Header from './components/header/header.components';
-import Home from './pages/home/home.page';
-import Footer from './components/footer/footer.component';
+import { Routes, Route } from 'react-router-dom';
+
+// Page/Route components
+import GlobalElements from './routes/global-elements/global-elements.component';
+import Home from './routes/home/home.component';
+import Recipes from './routes/recipes/recipes.component';
 
 // import Fontawesome icons for use
 import { library as faLibrary } from '@fortawesome/fontawesome-svg-core';
@@ -215,11 +217,34 @@ const App = () => {
 
   // Render the app with Header, Footer, and Pages inside Router element
   return (
-    <>
-      <Header />
-      <Home recipes={recipes} aboutInfo={aboutInfo} />
-      <Footer lines={['Follow Me']} socialMediums={aboutInfo.socialMediums} />
-    </>
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <GlobalElements
+            socialMediums={aboutInfo.socialMediums}
+          />
+        }
+      >
+        <Route
+          index
+          element={
+            <Home
+              recipes={recipes}
+              aboutInfo={aboutInfo}
+            />
+          }
+        />
+        <Route
+          path="recipes"
+          element={
+            <Recipes
+              recipes={recipes}
+            />
+          }
+        />
+      </Route>
+    </Routes>
   )
 }
 

@@ -1,0 +1,27 @@
+.subscribe-form {
+  max-width: 500px;
+  text-align: center;
+
+  &>label {
+    display: block;
+    font-size: .88em;
+    margin: 0 0 4px 5px;
+    text-align: left;
+  }
+
+  &>input[type="email"],
+  &>input[type="text"] {
+    border: 2px solid var(--color-near-black);
+    border-radius: 10px;
+    color: var(--color-near-black);
+    display: block;
+    font-size: 1.13em;
+    height: 50px;
+    padding: 0 15px;
+    width: 100%;
+
+    &:focus-visible {
+      outline-color: var(--color-primary);
+    }
+  }
+}

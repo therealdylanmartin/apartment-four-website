@@ -1,4 +1,4 @@
-const SectionHeading = ({ lines, inverted, centered }) => {
+const SectionHeading = ({ lines, centered }) => {
 
   const getInnerContent = () => {
     let innerContent = [];
@@ -14,7 +14,7 @@ const SectionHeading = ({ lines, inverted, centered }) => {
 
   return (
     <h2 className={
-      `h2${inverted ? ' h2--inverted' : ''}${centered ? ' text-center' : ''}`
+      `h2${centered ? ' text-center' : ''}`
     }>
       {getInnerContent()}
     </h2>

@@ -1,6 +1,8 @@
 import RecipeTile from '../recipe-tile/recipe-tile.component';
 
-const RecipesGrid = ({ recipes, limit }) => {
+import './recipes-grid.styles.scss';
+
+const RecipesGrid = ({ recipes, limit, pagination }) => {
   // intialize recndered recipes as incoming recipes object
   let renderedRecipes = recipes;
   // if a limit is set, slice array at chosen limit

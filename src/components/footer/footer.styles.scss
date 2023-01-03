@@ -1,0 +1,31 @@
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 500px;
+  margin: 20px auto 0;
+}
+
+.footer__social {
+  align-self: center;
+  width: 100%;
+}
+
+.footer__nav {
+  align-self: flex-end;
+  text-align: center;
+  width: 100%;
+
+  &>ul {
+    list-style-type: none;
+    padding-left: 0;
+
+    &>li>a {
+      color: var(--color-primary);
+    }
+  }
+}
+
+.footer__text {
+  font-size: .67em;
+  margin-bottom: 15px;
+}

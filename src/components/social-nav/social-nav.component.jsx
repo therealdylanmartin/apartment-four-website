@@ -1,5 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import './social-nav.styles.scss';
+
 const SocialNav = ({ socialMediums }) => {
   let currentKey = 0;
 

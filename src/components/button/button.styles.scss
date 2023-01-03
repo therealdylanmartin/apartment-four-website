@@ -1,0 +1,48 @@
+.button__container {
+  text-align: center;
+}
+
+p+.button__container>.button {
+  margin-top: 0;
+}
+
+.button {
+  align-items: center;
+  background-color: var(--color-primary);
+  border: 2px var(--color-primary) solid;
+  border-radius: 10px;
+  color: var(--color-secondary);
+  cursor: pointer;
+  display: inline-flex;
+  height: 50px;
+  font-family: var(--font-button);
+  font-size: 1.44em;
+  letter-spacing: .04em;
+  margin: 20px auto;
+  padding: 0 30px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color .3s ease-out, background-color .3s ease-in;
+
+  &:hover,
+  &:active {
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+  }
+
+  & svg {
+    transform: translateX(5px);
+  }
+}
+
+.section--inverted>.button__container>.button {
+  background-color: var(--color-secondary);
+  border: 2px var(--color-secondary) solid;
+  color: var(---color-primary);
+
+  &:hover,
+  &:active {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+  }
+}
