@@ -13,31 +13,27 @@ const Button = ({ buttonText, path, onClickHandler, faCode }) => {
     renderedText += ' ';
   }
 
-  if (path.includes('mailto:') || path.includes('tel:')) {
+  const buttonContainer = (children) => {
     return (
       <div className="button__container">
-        <a className="button" href={path}>
-          {renderedText}{faIcon}
-        </a>
-      </div>
-    )
-  } else if (path) {
-    return (
-      <div className="button__container">
-        <Link className="button" to={path}>
-          {renderedText}{faIcon}
-        </Link>
-      </div>
-    )
-  } else {
-    return (
-      <div className="button__container">
-        <button className="button" onClick={onClickHandler}>
-          {renderedText}{faIcon}
-        </button>
+        {children}
       </div>
     )
   }
+
+  let currentChildren;
+
+  if (path) {
+    if (path.includes('mailto:') || path.includes('tel:')) {
+      currentChildren = <a className="button" href={path}>{renderedText}{faIcon}</a>;
+    } else {
+      currentChildren = <Link className="button" to={path}>{renderedText}{faIcon}</Link>;
+    }
+  } else {
+    currentChildren = <button className="button" onClick={onClickHandler}>{renderedText}{faIcon}</button>
+  }
+
+  return buttonContainer(currentChildren);
 }
 
 export default Button;

@@ -31,7 +31,7 @@ const Home = ({ recipes, aboutInfo }) => {
             alt={image.altText}
           />
         </figure>
-        <p class="p">
+        <p className="p">
           {description}
         </p>
         <Button
