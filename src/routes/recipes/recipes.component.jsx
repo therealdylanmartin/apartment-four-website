@@ -11,7 +11,7 @@ const Recipes = ({ recipes }) => {
         <RecipesGrid
           recipes={recipes}
           limit="24"
-          pagination={true}
+          pagination
         />
       </Section>
     </main>

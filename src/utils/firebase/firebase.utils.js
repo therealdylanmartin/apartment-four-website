@@ -1,16 +1,16 @@
 // Import the functions you need from the SDKs you need
 import {
   getAuth,
-  signInWithRedirect,
   signInWithPopup,
-  GoogleAuthProvider
+  GoogleAuthProvider,
+  signOut,
+  onAuthStateChanged
 } from 'firebase/auth';
 import { initializeApp } from 'firebase/app';
 import {
   getFirestore,
   doc,
-  getDoc,
-  setDoc
+  getDoc
 } from 'firebase/firestore';
 // import { getAnalytics } from 'firebase/analytics';
 // TODO: Add SDKs for Firebase products that you want to use
@@ -39,30 +39,23 @@ googleProvider.setCustomParameters({
 })
 
 export const auth = getAuth();
+
 export const signInWithGooglePopup = () => signInWithPopup(auth, googleProvider);
-export const signInWithGoogleRedirect = () => signInWithRedirect(auth, googleProvider);
 
 export const db = getFirestore();
 
-export const createUserDocumentFromAuth = async (userAuth) => {
-  const userDocRef = doc(db, 'users', userAuth.uid);
+export const createAdminUserDocumentFromAuth = async (userAuth) => {
+  const userDocRef = doc(db, 'admin-users', userAuth.uid);
 
   const userSnapshot = await getDoc(userDocRef);
 
-  if (!userSnapshot.exists()) {
-    const { displayName, email } = userAuth;
-    const createdAt = new Date();
-
-    try {
-      await setDoc(userDocRef, {
-        displayName,
-        email,
-        createdAt
-      })
-    } catch (error) {
-      console.log('Error creating user', error.message);
-    }
+  if (userSnapshot.exists()) {
+    return userDocRef;
+  } else {
+    return await signOut(auth);
   }
-
-  return userDocRef;
 }
+
+export const signOutAdminUser = async () => await signOut(auth);
+
+export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth, callback);

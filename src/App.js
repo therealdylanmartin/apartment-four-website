@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import GlobalElements from './routes/global-elements/global-elements.component';
 import Home from './routes/home/home.component';
 import Recipes from './routes/recipes/recipes.component';
-import SignIn from './components/sign-in/sign-in.component';
+import Admin from './routes/admin/admin';
 
 // import Fontawesome icons for use
 import { library as faLibrary } from '@fortawesome/fontawesome-svg-core';
@@ -246,9 +246,9 @@ const App = () => {
         />
       </Route>
       <Route
-        path="/sign-in"
+        path="/admin"
         element={
-          <SignIn />
+          <Admin />
         }
       />
     </Routes>

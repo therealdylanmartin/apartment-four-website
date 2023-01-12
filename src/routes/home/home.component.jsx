@@ -21,7 +21,7 @@ const Home = ({ recipes, aboutInfo }) => {
       </Section>
       <Section
         idTag="about-me"
-        inverted={true}
+        inverted
       >
         <SectionHeading lines={['The Girl From', 'Apartment Four']} />
         <figure>

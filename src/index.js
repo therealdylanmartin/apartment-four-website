@@ -2,15 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 
-import './index.scss';
+import { AdminUserProvider } from './context/admin-user.context';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+
+import './index.scss';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <AdminUserProvider>
+        <App />
+      </AdminUserProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

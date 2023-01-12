@@ -8,7 +8,7 @@ const Footer = ({ lines, socialMediums }) => {
   return (
     <footer>
       <div className="footer__social">
-        <SectionHeading lines={lines} centered={true} />
+        <SectionHeading lines={lines} centered />
         <SocialNav socialMediums={socialMediums} />
       </div>
       <nav className="footer__nav">
