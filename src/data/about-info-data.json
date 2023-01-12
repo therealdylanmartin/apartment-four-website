@@ -1,0 +1,27 @@
+{
+  "image": {
+    "path": "https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=",
+    "altText": "Rachael Martin from Apartment Four"
+  },
+  "description": "My name is Rachael Martin and cooking is my passion. I design enticing plant-based recipes that any home cook can follow. I live in Madison with my lovely husband and three adorable kitties.",
+  "socialMediums": [
+    {
+      "type": "TikTok",
+      "path": "https://tiktok.com",
+      "handle": "fromapartmentfour",
+      "faCode": "tiktok"
+    },
+    {
+      "type": "Instagram",
+      "path": "https://instagram.com",
+      "handle": "fromapartmentfour",
+      "faCode": "instagram"
+    },
+    {
+      "type": "Pinterest",
+      "path": "https://pinterest.com",
+      "handle": "fromapartmentfour",
+      "faCode": "pinterest-p"
+    }
+  ]
+}

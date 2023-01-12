@@ -3,7 +3,7 @@ import SectionHeading from '../../components/section-heading/section-heading.com
 import RecipesGrid from '../../components/recipes-grid/recipes-grid.component';
 import Button from '../../components/button/button.component';
 
-const Home = ({ recipes, aboutInfo }) => {
+const Home = ({ aboutInfo }) => {
   const { image, description } = aboutInfo;
 
   return (
@@ -11,7 +11,6 @@ const Home = ({ recipes, aboutInfo }) => {
       <Section idTag="recipes">
         <SectionHeading lines={['New Recipes From', 'Apartment Four']} />
         <RecipesGrid
-          recipes={recipes}
           limit="12"
         />
         <Button

@@ -1,9 +1,13 @@
+import { useContext } from 'react';
+import { RecipesContext } from '../../context/recipes.context';
+
 import RecipeTile from '../recipe-tile/recipe-tile.component';
 
 import './recipes-grid.styles.scss';
 
-const RecipesGrid = ({ recipes, limit, pagination }) => {
+const RecipesGrid = ({ limit, pagination }) => {
   // intialize recndered recipes as incoming recipes object
+  const { recipes } = useContext(RecipesContext);
   let renderedRecipes = recipes;
   // if a limit is set, slice array at chosen limit
   if (limit) {
