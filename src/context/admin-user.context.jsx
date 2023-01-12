@@ -11,12 +11,14 @@ export const AdminUserProvider = ({ children }) => {
   const value = { currentUser, setCurrentUser };
 
   useEffect(() => {
-    onAuthStateChangedListener((user) => {
+    const unsubscribe = onAuthStateChangedListener((user) => {
       if (user) {
         createAdminUserDocumentFromAuth(user);
       }
       setCurrentUser(user);
     })
+
+    return unsubscribe;
   }, [])
 
   return <AdminUserContext.Provider value={value}>{children}</AdminUserContext.Provider>;
