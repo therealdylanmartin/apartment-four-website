@@ -1,0 +1,20 @@
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.loading-spinner {
+  align-items: center;
+  animation: rotation 1s infinite linear;
+  color: var(--color-primary);
+  display: flex;
+  font-size: 3em;
+  min-height: 100vh;
+  justify-content: center;
+  width: 100%;
+}

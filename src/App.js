@@ -9,7 +9,7 @@ import Admin from './routes/admin/admin';
 
 // import Fontawesome icons for use
 import { library as faLibrary } from '@fortawesome/fontawesome-svg-core';
-import { faStar, faStarHalfStroke, faBars } from '@fortawesome/free-solid-svg-icons';
+import { faStar, faStarHalfStroke, faBars, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { faStar as faStarEmpty, faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { faTiktok, faInstagram, faPinterestP } from '@fortawesome/free-brands-svg-icons';
 
@@ -18,6 +18,7 @@ faLibrary.add(
   faStar,
   faStarHalfStroke,
   faBars,
+  faSpinner,
   faStarEmpty,
   faEnvelope,
   faTiktok,

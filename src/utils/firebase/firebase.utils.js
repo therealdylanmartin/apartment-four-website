@@ -10,7 +10,11 @@ import { initializeApp } from 'firebase/app';
 import {
   getFirestore,
   doc,
-  getDoc
+  getDoc,
+  getDocs,
+  collection,
+  writeBatch,
+  query
 } from 'firebase/firestore';
 // import { getAnalytics } from 'firebase/analytics';
 // TODO: Add SDKs for Firebase products that you want to use
@@ -43,6 +47,38 @@ export const auth = getAuth();
 export const signInWithGooglePopup = () => signInWithPopup(auth, googleProvider);
 
 export const db = getFirestore();
+
+// export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
+//   const collectionRef = collection(db, collectionKey);
+//   const batch = writeBatch(db);
+
+//   objectsToAdd.forEach(object => {
+//     const docRef = doc(collectionRef, object.title.toLowerCase());
+//     batch.set(docRef, object);
+//   })
+
+//   await batch.commit();
+//   console.log('done');
+// }
+
+export const getRecipesAndDocuments = async () => {
+  const collectionRef = collection(db, 'recipes');
+  const recipesQuery = query(collectionRef);
+  const querySnapshot = await getDocs(recipesQuery);
+
+  const recipesMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
+    const data = docSnapshot.data();
+    const { title } = data;
+
+    acc[title.toLowerCase()] = data;
+
+    return acc;
+  }, {})
+
+  const recipes = Object.values(recipesMap);
+
+  return recipes;
+}
 
 export const createAdminUserDocumentFromAuth = async (userAuth) => {
   const userDocRef = doc(db, 'admin-users', userAuth.uid);
