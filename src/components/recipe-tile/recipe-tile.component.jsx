@@ -4,16 +4,18 @@ import './recipe-tile.styles.scss';
 
 const RecipeTile = ({ recipe }) => {
   // destructure properties off recipe object
-  const { title, image, totalTime, rating } = recipe;
+  const { title, imageForMobile, time, ratings } = recipe;
   // convert recipe title to a lower case hyphenated slug
   const recipeSlug = title.toLowerCase().replace(' ', '-');
+  // Get average rating for recipe
+  const averageRating = ratings.reduce((partialSum, currentNum) => partialSum + currentNum, 0) / ratings.length;
 
   // function for rendering star rating
-  const renderStars = (rating) => {
+  const renderStars = (score) => {
     // round down for number of full stars
-    const fullStars = Math.floor(rating);
+    const fullStars = Math.floor(score);
     // grab any partial star data after decimal
-    const partialStar = Number(rating.toString().split('.')[1]);
+    const partialStar = Number(score.toString().split('.')[1].split('')[0]);
     // initialize allStars as empty array, set current key to 1
     let allStars = [];
     let currentKey = 1;
@@ -49,10 +51,10 @@ const RecipeTile = ({ recipe }) => {
 
   return (
     <a className="grid__tile-container" href={`/recipes/${recipeSlug}`}>
-      <div className="grid__tile" style={{ backgroundImage: `url(${image.path})` }}>
-        <p className="recipe__time">{totalTime}m</p>
-        <h6 className="recipe__rating" aria-label={`Rated ${rating.score} stars from ${rating.numScored} reviews`}>
-          {renderStars(rating.score)}
+      <div className="grid__tile" style={{ backgroundImage: `url(${imageForMobile.src})` }}>
+        <p className="recipe__time">{time.totalTime}m</p>
+        <h6 className="recipe__rating" aria-label={`Rated ${averageRating} stars from ${ratings.length} reviews`}>
+          {renderStars(averageRating)}
         </h6>
       </div>
       <h3 className="recipe__title">{title}</h3>

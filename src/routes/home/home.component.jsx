@@ -26,7 +26,7 @@ const Home = ({ aboutInfo }) => {
         <figure>
           <img
             className="about-me__img"
-            src={image.path}
+            src={image.src}
             alt={image.altText}
           />
         </figure>

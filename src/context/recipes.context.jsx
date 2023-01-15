@@ -6,13 +6,14 @@ export const RecipesContext = createContext({
 })
 
 export const RecipesProvider = ({ children }) => {
-  const [recipes, setRecipes] = useState({});
+  const [recipes, setRecipes] = useState([]);
   const value = { recipes };
 
   useEffect(() => {
     const getRecipes = async () => {
       const fetchedRecipes = await getRecipesAndDocuments();
-      setRecipes(fetchedRecipes);
+      const sortedRecipes = fetchedRecipes.sort((a, b) => a.id - b.id);
+      setRecipes(sortedRecipes);
     }
 
     getRecipes();

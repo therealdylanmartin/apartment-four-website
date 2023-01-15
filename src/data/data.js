@@ -1,158 +1,566 @@
 export const RECIPES_DATA = [
   {
     id: 1,
+    createdAt: '2023-01-15T02:03:43.223Z',
+    lastUpdated: '2023-01-15T02:03:43.223Z',
     title: 'Recipe 1',
-    image: {
-      path: 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=',
+    imageForMobile: {
+      src: 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=',
       altText: ''
     },
-    totalTime: 45,
-    rating: {
-      score: 4.5,
-      numScored: 43
-    }
+    imageForDesktop: {
+      src: 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=',
+      altText: ''
+    },
+    description: ['I\'m describing this recipe', 'And I will keep describing it here!'],
+    time: {
+      activeTime: 30,
+      otherTime: {
+        marinatingTime: null,
+        soakingTime: null
+      },
+      totalTime: 45
+    },
+    ingredients: [
+      { heading: 'Big Ingredients' },
+      'Ingredient 1',
+      'Ingredient 2',
+      'Ingredient 3',
+      { heading: 'Small Ingredients' },
+      'Ingredient 4',
+      'Ingredient 5'
+    ],
+    directions: {
+      step1: {
+        heading: 'Step 1',
+        description: 'Do a thing with the ingredients.'
+      },
+      step2: {
+        heading: 'Step 2',
+        description: 'Cook that thing you just did.'
+      },
+      step3: {
+        heading: 'Step 3',
+        description: 'Oh wow, looking good! Put it on a plate.'
+      }
+    },
+    ratings: [4, 5, 3.5, 4, 4.5, 5, 4, 4.5, 3, 5]
   },
   {
     id: 2,
+    createdAt: '2023-01-15T02:03:43.223Z',
+    lastUpdated: '2023-01-15T02:03:43.223Z',
     title: 'Recipe 2',
-    image: {
-      path: 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=',
+    imageForMobile: {
+      src: 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=',
       altText: ''
     },
-    totalTime: 30,
-    rating: {
-      score: 4,
-      numScored: 21
-    }
+    imageForDesktop: {
+      src: 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=',
+      altText: ''
+    },
+    description: ['I\'m describing this recipe', 'And I will keep describing it here!'],
+    time: {
+      activeTime: 30,
+      otherTime: {
+        marinatingTime: null,
+        soakingTime: null
+      },
+      totalTime: 45
+    },
+    ingredients: [
+      { heading: 'Big Ingredients' },
+      'Ingredient 1',
+      'Ingredient 2',
+      'Ingredient 3',
+      { heading: 'Small Ingredients' },
+      'Ingredient 4',
+      'Ingredient 5'
+    ],
+    directions: {
+      step1: {
+        heading: 'Step 1',
+        description: 'Do a thing with the ingredients.'
+      },
+      step2: {
+        heading: 'Step 2',
+        description: 'Cook that thing you just did.'
+      },
+      step3: {
+        heading: 'Step 3',
+        description: 'Oh wow, looking good! Put it on a plate.'
+      }
+    },
+    ratings: [4, 5, 3.5, 4, 4.5, 5, 4, 4.5, 3, 5]
   },
   {
     id: 3,
+    createdAt: '2023-01-15T02:03:43.223Z',
+    lastUpdated: '2023-01-15T02:03:43.223Z',
     title: 'Recipe 3',
-    image: {
-      path: 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=',
+    imageForMobile: {
+      src: 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=',
       altText: ''
     },
-    totalTime: 55,
-    rating: {
-      score: 5,
-      numScored: 10
-    }
+    imageForDesktop: {
+      src: 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=',
+      altText: ''
+    },
+    description: ['I\'m describing this recipe', 'And I will keep describing it here!'],
+    time: {
+      activeTime: 30,
+      otherTime: {
+        marinatingTime: null,
+        soakingTime: null
+      },
+      totalTime: 45
+    },
+    ingredients: [
+      { heading: 'Big Ingredients' },
+      'Ingredient 1',
+      'Ingredient 2',
+      'Ingredient 3',
+      { heading: 'Small Ingredients' },
+      'Ingredient 4',
+      'Ingredient 5'
+    ],
+    directions: {
+      step1: {
+        heading: 'Step 1',
+        description: 'Do a thing with the ingredients.'
+      },
+      step2: {
+        heading: 'Step 2',
+        description: 'Cook that thing you just did.'
+      },
+      step3: {
+        heading: 'Step 3',
+        description: 'Oh wow, looking good! Put it on a plate.'
+      }
+    },
+    ratings: [4, 5, 3.5, 4, 4.5, 5, 4, 4.5, 3, 5]
   },
   {
     id: 4,
+    createdAt: '2023-01-15T02:03:43.223Z',
+    lastUpdated: '2023-01-15T02:03:43.223Z',
     title: 'Recipe 4',
-    image: {
-      path: 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=',
+    imageForMobile: {
+      src: 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=',
       altText: ''
     },
-    totalTime: 35,
-    rating: {
-      score: 4.5,
-      numScored: 13
-    }
+    imageForDesktop: {
+      src: 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=',
+      altText: ''
+    },
+    description: ['I\'m describing this recipe', 'And I will keep describing it here!'],
+    time: {
+      activeTime: 30,
+      otherTime: {
+        marinatingTime: null,
+        soakingTime: null
+      },
+      totalTime: 45
+    },
+    ingredients: [
+      { heading: 'Big Ingredients' },
+      'Ingredient 1',
+      'Ingredient 2',
+      'Ingredient 3',
+      { heading: 'Small Ingredients' },
+      'Ingredient 4',
+      'Ingredient 5'
+    ],
+    directions: {
+      step1: {
+        heading: 'Step 1',
+        description: 'Do a thing with the ingredients.'
+      },
+      step2: {
+        heading: 'Step 2',
+        description: 'Cook that thing you just did.'
+      },
+      step3: {
+        heading: 'Step 3',
+        description: 'Oh wow, looking good! Put it on a plate.'
+      }
+    },
+    ratings: [4, 5, 3.5, 4, 4.5, 5, 4, 4.5, 3, 5]
   },
   {
     id: 5,
+    createdAt: '2023-01-15T02:03:43.223Z',
+    lastUpdated: '2023-01-15T02:03:43.223Z',
     title: 'Recipe 5',
-    image: {
-      path: 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=',
+    imageForMobile: {
+      src: 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=',
       altText: ''
     },
-    totalTime: 45,
-    rating: {
-      score: 3.5,
-      numScored: 2
-    }
+    imageForDesktop: {
+      src: 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=',
+      altText: ''
+    },
+    description: ['I\'m describing this recipe', 'And I will keep describing it here!'],
+    time: {
+      activeTime: 30,
+      otherTime: {
+        marinatingTime: null,
+        soakingTime: null
+      },
+      totalTime: 45
+    },
+    ingredients: [
+      { heading: 'Big Ingredients' },
+      'Ingredient 1',
+      'Ingredient 2',
+      'Ingredient 3',
+      { heading: 'Small Ingredients' },
+      'Ingredient 4',
+      'Ingredient 5'
+    ],
+    directions: {
+      step1: {
+        heading: 'Step 1',
+        description: 'Do a thing with the ingredients.'
+      },
+      step2: {
+        heading: 'Step 2',
+        description: 'Cook that thing you just did.'
+      },
+      step3: {
+        heading: 'Step 3',
+        description: 'Oh wow, looking good! Put it on a plate.'
+      }
+    },
+    ratings: [4, 5, 3.5, 4, 4.5, 5, 4, 4.5, 3, 5]
   },
   {
     id: 6,
+    createdAt: '2023-01-15T02:03:43.223Z',
+    lastUpdated: '2023-01-15T02:03:43.223Z',
     title: 'Recipe 6',
-    image: {
-      path: 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=',
+    imageForMobile: {
+      src: 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=',
       altText: ''
     },
-    totalTime: 30,
-    rating: {
-      score: 5,
-      numScored: 23
-    }
+    imageForDesktop: {
+      src: 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=',
+      altText: ''
+    },
+    description: ['I\'m describing this recipe', 'And I will keep describing it here!'],
+    time: {
+      activeTime: 30,
+      otherTime: {
+        marinatingTime: null,
+        soakingTime: null
+      },
+      totalTime: 45
+    },
+    ingredients: [
+      { heading: 'Big Ingredients' },
+      'Ingredient 1',
+      'Ingredient 2',
+      'Ingredient 3',
+      { heading: 'Small Ingredients' },
+      'Ingredient 4',
+      'Ingredient 5'
+    ],
+    directions: {
+      step1: {
+        heading: 'Step 1',
+        description: 'Do a thing with the ingredients.'
+      },
+      step2: {
+        heading: 'Step 2',
+        description: 'Cook that thing you just did.'
+      },
+      step3: {
+        heading: 'Step 3',
+        description: 'Oh wow, looking good! Put it on a plate.'
+      }
+    },
+    ratings: [4, 5, 3.5, 4, 4.5, 5, 4, 4.5, 3, 5]
   },
   {
     id: 7,
+    createdAt: '2023-01-15T02:03:43.223Z',
+    lastUpdated: '2023-01-15T02:03:43.223Z',
     title: 'Recipe 7',
-    image: {
-      path: 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=',
+    imageForMobile: {
+      src: 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=',
       altText: ''
     },
-    totalTime: 75,
-    rating: {
-      score: 4,
-      numScored: 17
-    }
+    imageForDesktop: {
+      src: 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=',
+      altText: ''
+    },
+    description: ['I\'m describing this recipe', 'And I will keep describing it here!'],
+    time: {
+      activeTime: 30,
+      otherTime: {
+        marinatingTime: null,
+        soakingTime: null
+      },
+      totalTime: 45
+    },
+    ingredients: [
+      { heading: 'Big Ingredients' },
+      'Ingredient 1',
+      'Ingredient 2',
+      'Ingredient 3',
+      { heading: 'Small Ingredients' },
+      'Ingredient 4',
+      'Ingredient 5'
+    ],
+    directions: {
+      step1: {
+        heading: 'Step 1',
+        description: 'Do a thing with the ingredients.'
+      },
+      step2: {
+        heading: 'Step 2',
+        description: 'Cook that thing you just did.'
+      },
+      step3: {
+        heading: 'Step 3',
+        description: 'Oh wow, looking good! Put it on a plate.'
+      }
+    },
+    ratings: [4, 5, 3.5, 4, 4.5, 5, 4, 4.5, 3, 5]
   },
   {
     id: 8,
+    createdAt: '2023-01-15T02:03:43.223Z',
+    lastUpdated: '2023-01-15T02:03:43.223Z',
     title: 'Recipe 8',
-    image: {
-      path: 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=',
+    imageForMobile: {
+      src: 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=',
       altText: ''
     },
-    totalTime: 50,
-    rating: {
-      score: 4.5,
-      numScored: 7
-    }
+    imageForDesktop: {
+      src: 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=',
+      altText: ''
+    },
+    description: ['I\'m describing this recipe', 'And I will keep describing it here!'],
+    time: {
+      activeTime: 30,
+      otherTime: {
+        marinatingTime: null,
+        soakingTime: null
+      },
+      totalTime: 45
+    },
+    ingredients: [
+      { heading: 'Big Ingredients' },
+      'Ingredient 1',
+      'Ingredient 2',
+      'Ingredient 3',
+      { heading: 'Small Ingredients' },
+      'Ingredient 4',
+      'Ingredient 5'
+    ],
+    directions: {
+      step1: {
+        heading: 'Step 1',
+        description: 'Do a thing with the ingredients.'
+      },
+      step2: {
+        heading: 'Step 2',
+        description: 'Cook that thing you just did.'
+      },
+      step3: {
+        heading: 'Step 3',
+        description: 'Oh wow, looking good! Put it on a plate.'
+      }
+    },
+    ratings: [4, 5, 3.5, 4, 4.5, 5, 4, 4.5, 3, 5]
   },
   {
     id: 9,
+    createdAt: '2023-01-15T02:03:43.223Z',
+    lastUpdated: '2023-01-15T02:03:43.223Z',
     title: 'Recipe 9',
-    image: {
-      path: 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=',
+    imageForMobile: {
+      src: 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=',
       altText: ''
     },
-    totalTime: 40,
-    rating: {
-      score: 5,
-      numScored: 23
-    }
+    imageForDesktop: {
+      src: 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=',
+      altText: ''
+    },
+    description: ['I\'m describing this recipe', 'And I will keep describing it here!'],
+    time: {
+      activeTime: 30,
+      otherTime: {
+        marinatingTime: null,
+        soakingTime: null
+      },
+      totalTime: 45
+    },
+    ingredients: [
+      { heading: 'Big Ingredients' },
+      'Ingredient 1',
+      'Ingredient 2',
+      'Ingredient 3',
+      { heading: 'Small Ingredients' },
+      'Ingredient 4',
+      'Ingredient 5'
+    ],
+    directions: {
+      step1: {
+        heading: 'Step 1',
+        description: 'Do a thing with the ingredients.'
+      },
+      step2: {
+        heading: 'Step 2',
+        description: 'Cook that thing you just did.'
+      },
+      step3: {
+        heading: 'Step 3',
+        description: 'Oh wow, looking good! Put it on a plate.'
+      }
+    },
+    ratings: [4, 5, 3.5, 4, 4.5, 5, 4, 4.5, 3, 5]
   },
   {
     id: 10,
+    createdAt: '2023-01-15T02:03:43.223Z',
+    lastUpdated: '2023-01-15T02:03:43.223Z',
     title: 'Recipe 10',
-    image: {
-      path: 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=',
+    imageForMobile: {
+      src: 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=',
       altText: ''
     },
-    totalTime: 25,
-    rating: {
-      score: 3,
-      numScored: 3
-    }
+    imageForDesktop: {
+      src: 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=',
+      altText: ''
+    },
+    description: ['I\'m describing this recipe', 'And I will keep describing it here!'],
+    time: {
+      activeTime: 30,
+      otherTime: {
+        marinatingTime: null,
+        soakingTime: null
+      },
+      totalTime: 45
+    },
+    ingredients: [
+      { heading: 'Big Ingredients' },
+      'Ingredient 1',
+      'Ingredient 2',
+      'Ingredient 3',
+      { heading: 'Small Ingredients' },
+      'Ingredient 4',
+      'Ingredient 5'
+    ],
+    directions: {
+      step1: {
+        heading: 'Step 1',
+        description: 'Do a thing with the ingredients.'
+      },
+      step2: {
+        heading: 'Step 2',
+        description: 'Cook that thing you just did.'
+      },
+      step3: {
+        heading: 'Step 3',
+        description: 'Oh wow, looking good! Put it on a plate.'
+      }
+    },
+    ratings: [4, 5, 3.5, 4, 4.5, 5, 4, 4.5, 3, 5]
   },
   {
     id: 11,
+    createdAt: '2023-01-15T02:03:43.223Z',
+    lastUpdated: '2023-01-15T02:03:43.223Z',
     title: 'Recipe 11',
-    image: {
-      path: 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=',
+    imageForMobile: {
+      src: 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=',
       altText: ''
     },
-    totalTime: 45,
-    rating: {
-      score: 4.5,
-      numScored: 13
-    }
+    imageForDesktop: {
+      src: 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=',
+      altText: ''
+    },
+    description: ['I\'m describing this recipe', 'And I will keep describing it here!'],
+    time: {
+      activeTime: 30,
+      otherTime: {
+        marinatingTime: null,
+        soakingTime: null
+      },
+      totalTime: 45
+    },
+    ingredients: [
+      { heading: 'Big Ingredients' },
+      'Ingredient 1',
+      'Ingredient 2',
+      'Ingredient 3',
+      { heading: 'Small Ingredients' },
+      'Ingredient 4',
+      'Ingredient 5'
+    ],
+    directions: {
+      step1: {
+        heading: 'Step 1',
+        description: 'Do a thing with the ingredients.'
+      },
+      step2: {
+        heading: 'Step 2',
+        description: 'Cook that thing you just did.'
+      },
+      step3: {
+        heading: 'Step 3',
+        description: 'Oh wow, looking good! Put it on a plate.'
+      }
+    },
+    ratings: [4, 5, 3.5, 4, 4.5, 5, 4, 4.5, 3, 5]
   },
   {
     id: 12,
+    createdAt: '2023-01-15T02:03:43.223Z',
+    lastUpdated: '2023-01-15T02:03:43.223Z',
     title: 'Recipe 12',
-    image: {
-      path: 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=',
+    imageForMobile: {
+      src: 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=',
       altText: ''
     },
-    totalTime: 60,
-    rating: {
-      score: 4,
-      numScored: 51
-    }
+    imageForDesktop: {
+      src: 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=',
+      altText: ''
+    },
+    description: ['I\'m describing this recipe', 'And I will keep describing it here!'],
+    time: {
+      activeTime: 30,
+      otherTime: {
+        marinatingTime: null,
+        soakingTime: null
+      },
+      totalTime: 45
+    },
+    ingredients: [
+      { heading: 'Big Ingredients' },
+      'Ingredient 1',
+      'Ingredient 2',
+      'Ingredient 3',
+      { heading: 'Small Ingredients' },
+      'Ingredient 4',
+      'Ingredient 5'
+    ],
+    directions: {
+      step1: {
+        heading: 'Step 1',
+        description: 'Do a thing with the ingredients.'
+      },
+      step2: {
+        heading: 'Step 2',
+        description: 'Cook that thing you just did.'
+      },
+      step3: {
+        heading: 'Step 3',
+        description: 'Oh wow, looking good! Put it on a plate.'
+      }
+    },
+    ratings: [4, 5, 3.5, 4, 4.5, 5, 4, 4.5, 3, 5]
   }
 ]
