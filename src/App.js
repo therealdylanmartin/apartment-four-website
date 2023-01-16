@@ -12,6 +12,7 @@ import { library as faLibrary } from '@fortawesome/fontawesome-svg-core';
 import { faStar, faStarHalfStroke, faBars, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { faStar as faStarEmpty, faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { faTiktok, faInstagram, faPinterestP } from '@fortawesome/free-brands-svg-icons';
+import Recipe from './routes/recipe/recipe.component';
 
 // add imported FA icons to faLibrary
 faLibrary.add(
@@ -50,12 +51,20 @@ const App = () => {
             />
           }
         />
-        <Route
-          path="recipes"
-          element={
-            <Recipes />
-          }
-        />
+        <Route path="recipes/">
+          <Route
+            index
+            element={
+              <Recipes />
+            }
+          />
+          <Route
+            path=":recipeId"
+            element={
+              <Recipe />
+            }
+          />
+        </Route>
       </Route>
       <Route
         path="/admin"

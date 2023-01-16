@@ -48,6 +48,22 @@ export const signInWithGooglePopup = () => signInWithPopup(auth, googleProvider)
 
 export const db = getFirestore();
 
+export const createAdminUserDocumentFromAuth = async (userAuth) => {
+  const userDocRef = doc(db, 'admin-users', userAuth.uid);
+
+  const userSnapshot = await getDoc(userDocRef);
+
+  if (userSnapshot.exists()) {
+    return userDocRef;
+  } else {
+    return await signOut(auth);
+  }
+}
+
+export const signOutAdminUser = async () => await signOut(auth);
+
+export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth, callback);
+
 export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
   const collectionRef = collection(db, collectionKey);
   const batch = writeBatch(db);
@@ -80,18 +96,14 @@ export const getRecipesAndDocuments = async () => {
   return recipes;
 }
 
-export const createAdminUserDocumentFromAuth = async (userAuth) => {
-  const userDocRef = doc(db, 'admin-users', userAuth.uid);
+export const GetSingleRecipeDocument = async (recipeId) => {
+  const recipeSnapshot = await getDoc(doc(db, 'recipes', recipeId.replace(/-/g, ' ')));
 
-  const userSnapshot = await getDoc(userDocRef);
-
-  if (userSnapshot.exists()) {
-    return userDocRef;
+  if (recipeSnapshot.exists()) {
+    const data = recipeSnapshot.data();
+    return data;
   } else {
-    return await signOut(auth);
+    console.log("Can't find that document");
+    return 404;
   }
 }
-
-export const signOutAdminUser = async () => await signOut(auth);
-
-export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth, callback);
