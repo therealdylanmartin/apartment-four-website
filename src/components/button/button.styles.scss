@@ -17,12 +17,14 @@ p+.button__container>.button {
   height: 50px;
   font-family: var(--font-button);
   font-size: 1.44em;
+  justify-content: center;
   letter-spacing: .04em;
   margin: 20px auto;
   padding: 0 30px;
   text-decoration: none;
   text-transform: uppercase;
   transition: color .3s ease-out, background-color .3s ease-in;
+  min-width: 300px;
 
   &:hover,
   &:active {

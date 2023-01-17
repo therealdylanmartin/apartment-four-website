@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from 'react';
-import { getRecipesAndDocuments } from '../utils/firebase/firebase.utils';
+import { getRecipesAndDocuments } from '../utils/firebase.utils';
 
 export const RecipesContext = createContext({
   recipes: {}

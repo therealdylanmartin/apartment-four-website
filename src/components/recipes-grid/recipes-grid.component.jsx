@@ -23,7 +23,7 @@ const RecipesGrid = ({ limit, pagination }) => {
       {renderedRecipes.length ?
         renderedRecipes.map(recipe => {
           return (
-            <RecipeTile recipe={recipe} key={recipe.id} />
+            <RecipeTile recipe={recipe} key={recipe.recipeNum} />
           )
         })
         :

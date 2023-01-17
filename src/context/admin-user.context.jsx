@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from 'react';
-import { createAdminUserDocumentFromAuth, onAuthStateChangedListener } from '../utils/firebase/firebase.utils';
+import { createAdminUserDocumentFromAuth, onAuthStateChangedListener } from '../utils/firebase.utils';
 
 export const AdminUserContext = createContext({
   currentUser: null,

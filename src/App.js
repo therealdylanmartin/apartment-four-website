@@ -5,6 +5,7 @@ import ABOUT_INFO from './data/about-info-data.json';
 import GlobalElements from './routes/global-elements/global-elements.component';
 import Home from './routes/home/home.component';
 import Recipes from './routes/recipes/recipes.component';
+import CreateRecipesData from './routes/create-recipes-data/create-recipes-data.component';
 import Admin from './routes/admin/admin';
 
 // import Fontawesome icons for use
@@ -62,6 +63,12 @@ const App = () => {
             path=":recipeId"
             element={
               <Recipe />
+            }
+          />
+          <Route
+            path="create-database"
+            element={
+              <CreateRecipesData />
             }
           />
         </Route>

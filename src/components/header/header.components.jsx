@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 
@@ -8,6 +8,18 @@ import './header.styles.scss'
 
 const Header = () => {
   const [isNavToggled, setIsNavToggled] = useState(false);
+  const [isAtIndex, setIsAtIndex] = useState(false);
+
+  // Get pathname to check for index
+  const pathName = document.location.pathname;
+
+  useEffect(() => {
+    if (pathName === '/') {
+      setIsAtIndex(true);
+    } else {
+      setIsAtIndex(false);
+    }
+  }, [pathName])
 
   const toggleNavMenu = () => {
     setIsNavToggled(!isNavToggled);
@@ -16,9 +28,17 @@ const Header = () => {
   return (
     <header>
       <nav className="top-nav">
-        <h1 className="top-nav__logo">
-          <img src="/assets/images/logos/logo_header.png" alt="Apartment Four" />
-        </h1>
+        {isAtIndex ?
+          <h1 className="top-nav__logo">
+            <img src="/assets/images/logos/logo_header.png" alt="Apartment Four" />
+          </h1>
+          :
+          <h1 className="top-nav__logo">
+            <a href="/">
+              <img src="/assets/images/logos/logo_header.png" alt="Apartment Four" />
+            </a>
+          </h1>
+        }
         <div className="top-nav__sandwich-nav">
           <button className="sandwich-nav__toggle" onClick={toggleNavMenu}>
             <FontAwesomeIcon icon="fa-solid fa-bars" />

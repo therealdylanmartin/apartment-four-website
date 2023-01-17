@@ -1,6 +1,6 @@
-export const RECIPES_DATA = [
+const RECIPES_DATA = [
   {
-    id: 1,
+    recipeNum: '0001',
     createdAt: '2023-01-15T02:03:43.223Z',
     lastUpdated: '2023-01-15T02:03:43.223Z',
     title: 'Recipe 1',
@@ -14,12 +14,12 @@ export const RECIPES_DATA = [
     },
     description: ['I\'m describing this recipe', 'And I will keep describing it here!'],
     time: {
-      activeTime: 30,
+      activeTime: '30',
       otherTime: {
         marinatingTime: null,
         soakingTime: null
       },
-      totalTime: 45
+      totalTime: '45'
     },
     ingredients: [
       { heading: 'Big Ingredients' },
@@ -30,24 +30,24 @@ export const RECIPES_DATA = [
       'Ingredient 4',
       'Ingredient 5'
     ],
-    directions: {
-      step1: {
+    directions: [
+      {
         heading: 'Step 1',
         description: 'Do a thing with the ingredients.'
       },
-      step2: {
+      {
         heading: 'Step 2',
         description: 'Cook that thing you just did.'
       },
-      step3: {
+      {
         heading: 'Step 3',
         description: 'Oh wow, looking good! Put it on a plate.'
       }
-    },
+    ],
     ratings: [4, 5, 3.5, 4, 4.5, 5, 4, 4.5, 3, 5]
   },
   {
-    id: 2,
+    recipeNum: '0002',
     createdAt: '2023-01-15T02:03:43.223Z',
     lastUpdated: '2023-01-15T02:03:43.223Z',
     title: 'Recipe 2',
@@ -61,12 +61,12 @@ export const RECIPES_DATA = [
     },
     description: ['I\'m describing this recipe', 'And I will keep describing it here!'],
     time: {
-      activeTime: 30,
+      activeTime: '30',
       otherTime: {
         marinatingTime: null,
         soakingTime: null
       },
-      totalTime: 45
+      totalTime: '45'
     },
     ingredients: [
       { heading: 'Big Ingredients' },
@@ -77,24 +77,24 @@ export const RECIPES_DATA = [
       'Ingredient 4',
       'Ingredient 5'
     ],
-    directions: {
-      step1: {
+    directions: [
+      {
         heading: 'Step 1',
         description: 'Do a thing with the ingredients.'
       },
-      step2: {
+      {
         heading: 'Step 2',
         description: 'Cook that thing you just did.'
       },
-      step3: {
+      {
         heading: 'Step 3',
         description: 'Oh wow, looking good! Put it on a plate.'
       }
-    },
+    ],
     ratings: [4, 5, 3.5, 4, 4.5, 5, 4, 4.5, 3, 5]
   },
   {
-    id: 3,
+    recipeNum: '0003',
     createdAt: '2023-01-15T02:03:43.223Z',
     lastUpdated: '2023-01-15T02:03:43.223Z',
     title: 'Recipe 3',
@@ -108,12 +108,12 @@ export const RECIPES_DATA = [
     },
     description: ['I\'m describing this recipe', 'And I will keep describing it here!'],
     time: {
-      activeTime: 30,
+      activeTime: '30',
       otherTime: {
         marinatingTime: null,
         soakingTime: null
       },
-      totalTime: 45
+      totalTime: '45'
     },
     ingredients: [
       { heading: 'Big Ingredients' },
@@ -124,24 +124,24 @@ export const RECIPES_DATA = [
       'Ingredient 4',
       'Ingredient 5'
     ],
-    directions: {
-      step1: {
+    directions: [
+      {
         heading: 'Step 1',
         description: 'Do a thing with the ingredients.'
       },
-      step2: {
+      {
         heading: 'Step 2',
         description: 'Cook that thing you just did.'
       },
-      step3: {
+      {
         heading: 'Step 3',
         description: 'Oh wow, looking good! Put it on a plate.'
       }
-    },
+    ],
     ratings: [4, 5, 3.5, 4, 4.5, 5, 4, 4.5, 3, 5]
   },
   {
-    id: 4,
+    recipeNum: '0004',
     createdAt: '2023-01-15T02:03:43.223Z',
     lastUpdated: '2023-01-15T02:03:43.223Z',
     title: 'Recipe 4',
@@ -155,12 +155,12 @@ export const RECIPES_DATA = [
     },
     description: ['I\'m describing this recipe', 'And I will keep describing it here!'],
     time: {
-      activeTime: 30,
+      activeTime: '30',
       otherTime: {
         marinatingTime: null,
         soakingTime: null
       },
-      totalTime: 45
+      totalTime: '45'
     },
     ingredients: [
       { heading: 'Big Ingredients' },
@@ -171,24 +171,24 @@ export const RECIPES_DATA = [
       'Ingredient 4',
       'Ingredient 5'
     ],
-    directions: {
-      step1: {
+    directions: [
+      {
         heading: 'Step 1',
         description: 'Do a thing with the ingredients.'
       },
-      step2: {
+      {
         heading: 'Step 2',
         description: 'Cook that thing you just did.'
       },
-      step3: {
+      {
         heading: 'Step 3',
         description: 'Oh wow, looking good! Put it on a plate.'
       }
-    },
+    ],
     ratings: [4, 5, 3.5, 4, 4.5, 5, 4, 4.5, 3, 5]
   },
   {
-    id: 5,
+    recipeNum: '0005',
     createdAt: '2023-01-15T02:03:43.223Z',
     lastUpdated: '2023-01-15T02:03:43.223Z',
     title: 'Recipe 5',
@@ -202,12 +202,12 @@ export const RECIPES_DATA = [
     },
     description: ['I\'m describing this recipe', 'And I will keep describing it here!'],
     time: {
-      activeTime: 30,
+      activeTime: '30',
       otherTime: {
         marinatingTime: null,
         soakingTime: null
       },
-      totalTime: 45
+      totalTime: '45'
     },
     ingredients: [
       { heading: 'Big Ingredients' },
@@ -218,24 +218,24 @@ export const RECIPES_DATA = [
       'Ingredient 4',
       'Ingredient 5'
     ],
-    directions: {
-      step1: {
+    directions: [
+      {
         heading: 'Step 1',
         description: 'Do a thing with the ingredients.'
       },
-      step2: {
+      {
         heading: 'Step 2',
         description: 'Cook that thing you just did.'
       },
-      step3: {
+      {
         heading: 'Step 3',
         description: 'Oh wow, looking good! Put it on a plate.'
       }
-    },
+    ],
     ratings: [4, 5, 3.5, 4, 4.5, 5, 4, 4.5, 3, 5]
   },
   {
-    id: 6,
+    recipeNum: '0006',
     createdAt: '2023-01-15T02:03:43.223Z',
     lastUpdated: '2023-01-15T02:03:43.223Z',
     title: 'Recipe 6',
@@ -249,12 +249,12 @@ export const RECIPES_DATA = [
     },
     description: ['I\'m describing this recipe', 'And I will keep describing it here!'],
     time: {
-      activeTime: 30,
+      activeTime: '30',
       otherTime: {
         marinatingTime: null,
         soakingTime: null
       },
-      totalTime: 45
+      totalTime: '45'
     },
     ingredients: [
       { heading: 'Big Ingredients' },
@@ -265,24 +265,24 @@ export const RECIPES_DATA = [
       'Ingredient 4',
       'Ingredient 5'
     ],
-    directions: {
-      step1: {
+    directions: [
+      {
         heading: 'Step 1',
         description: 'Do a thing with the ingredients.'
       },
-      step2: {
+      {
         heading: 'Step 2',
         description: 'Cook that thing you just did.'
       },
-      step3: {
+      {
         heading: 'Step 3',
         description: 'Oh wow, looking good! Put it on a plate.'
       }
-    },
+    ],
     ratings: [4, 5, 3.5, 4, 4.5, 5, 4, 4.5, 3, 5]
   },
   {
-    id: 7,
+    recipeNum: '0007',
     createdAt: '2023-01-15T02:03:43.223Z',
     lastUpdated: '2023-01-15T02:03:43.223Z',
     title: 'Recipe 7',
@@ -296,12 +296,12 @@ export const RECIPES_DATA = [
     },
     description: ['I\'m describing this recipe', 'And I will keep describing it here!'],
     time: {
-      activeTime: 30,
+      activeTime: '30',
       otherTime: {
         marinatingTime: null,
         soakingTime: null
       },
-      totalTime: 45
+      totalTime: '45'
     },
     ingredients: [
       { heading: 'Big Ingredients' },
@@ -312,24 +312,24 @@ export const RECIPES_DATA = [
       'Ingredient 4',
       'Ingredient 5'
     ],
-    directions: {
-      step1: {
+    directions: [
+      {
         heading: 'Step 1',
         description: 'Do a thing with the ingredients.'
       },
-      step2: {
+      {
         heading: 'Step 2',
         description: 'Cook that thing you just did.'
       },
-      step3: {
+      {
         heading: 'Step 3',
         description: 'Oh wow, looking good! Put it on a plate.'
       }
-    },
+    ],
     ratings: [4, 5, 3.5, 4, 4.5, 5, 4, 4.5, 3, 5]
   },
   {
-    id: 8,
+    recipeNum: '0008',
     createdAt: '2023-01-15T02:03:43.223Z',
     lastUpdated: '2023-01-15T02:03:43.223Z',
     title: 'Recipe 8',
@@ -343,12 +343,12 @@ export const RECIPES_DATA = [
     },
     description: ['I\'m describing this recipe', 'And I will keep describing it here!'],
     time: {
-      activeTime: 30,
+      activeTime: '30',
       otherTime: {
         marinatingTime: null,
         soakingTime: null
       },
-      totalTime: 45
+      totalTime: '45'
     },
     ingredients: [
       { heading: 'Big Ingredients' },
@@ -359,24 +359,24 @@ export const RECIPES_DATA = [
       'Ingredient 4',
       'Ingredient 5'
     ],
-    directions: {
-      step1: {
+    directions: [
+      {
         heading: 'Step 1',
         description: 'Do a thing with the ingredients.'
       },
-      step2: {
+      {
         heading: 'Step 2',
         description: 'Cook that thing you just did.'
       },
-      step3: {
+      {
         heading: 'Step 3',
         description: 'Oh wow, looking good! Put it on a plate.'
       }
-    },
+    ],
     ratings: [4, 5, 3.5, 4, 4.5, 5, 4, 4.5, 3, 5]
   },
   {
-    id: 9,
+    recipeNum: '0009',
     createdAt: '2023-01-15T02:03:43.223Z',
     lastUpdated: '2023-01-15T02:03:43.223Z',
     title: 'Recipe 9',
@@ -390,12 +390,12 @@ export const RECIPES_DATA = [
     },
     description: ['I\'m describing this recipe', 'And I will keep describing it here!'],
     time: {
-      activeTime: 30,
+      activeTime: '30',
       otherTime: {
         marinatingTime: null,
         soakingTime: null
       },
-      totalTime: 45
+      totalTime: '45'
     },
     ingredients: [
       { heading: 'Big Ingredients' },
@@ -406,24 +406,24 @@ export const RECIPES_DATA = [
       'Ingredient 4',
       'Ingredient 5'
     ],
-    directions: {
-      step1: {
+    directions: [
+      {
         heading: 'Step 1',
         description: 'Do a thing with the ingredients.'
       },
-      step2: {
+      {
         heading: 'Step 2',
         description: 'Cook that thing you just did.'
       },
-      step3: {
+      {
         heading: 'Step 3',
         description: 'Oh wow, looking good! Put it on a plate.'
       }
-    },
+    ],
     ratings: [4, 5, 3.5, 4, 4.5, 5, 4, 4.5, 3, 5]
   },
   {
-    id: 10,
+    recipeNum: '0010',
     createdAt: '2023-01-15T02:03:43.223Z',
     lastUpdated: '2023-01-15T02:03:43.223Z',
     title: 'Recipe 10',
@@ -437,12 +437,12 @@ export const RECIPES_DATA = [
     },
     description: ['I\'m describing this recipe', 'And I will keep describing it here!'],
     time: {
-      activeTime: 30,
+      activeTime: '30',
       otherTime: {
         marinatingTime: null,
         soakingTime: null
       },
-      totalTime: 45
+      totalTime: '45'
     },
     ingredients: [
       { heading: 'Big Ingredients' },
@@ -453,24 +453,24 @@ export const RECIPES_DATA = [
       'Ingredient 4',
       'Ingredient 5'
     ],
-    directions: {
-      step1: {
+    directions: [
+      {
         heading: 'Step 1',
         description: 'Do a thing with the ingredients.'
       },
-      step2: {
+      {
         heading: 'Step 2',
         description: 'Cook that thing you just did.'
       },
-      step3: {
+      {
         heading: 'Step 3',
         description: 'Oh wow, looking good! Put it on a plate.'
       }
-    },
+    ],
     ratings: [4, 5, 3.5, 4, 4.5, 5, 4, 4.5, 3, 5]
   },
   {
-    id: 11,
+    recipeNum: '0011',
     createdAt: '2023-01-15T02:03:43.223Z',
     lastUpdated: '2023-01-15T02:03:43.223Z',
     title: 'Recipe 11',
@@ -484,12 +484,12 @@ export const RECIPES_DATA = [
     },
     description: ['I\'m describing this recipe', 'And I will keep describing it here!'],
     time: {
-      activeTime: 30,
+      activeTime: '30',
       otherTime: {
         marinatingTime: null,
         soakingTime: null
       },
-      totalTime: 45
+      totalTime: '45'
     },
     ingredients: [
       { heading: 'Big Ingredients' },
@@ -500,24 +500,24 @@ export const RECIPES_DATA = [
       'Ingredient 4',
       'Ingredient 5'
     ],
-    directions: {
-      step1: {
+    directions: [
+      {
         heading: 'Step 1',
         description: 'Do a thing with the ingredients.'
       },
-      step2: {
+      {
         heading: 'Step 2',
         description: 'Cook that thing you just did.'
       },
-      step3: {
+      {
         heading: 'Step 3',
         description: 'Oh wow, looking good! Put it on a plate.'
       }
-    },
+    ],
     ratings: [4, 5, 3.5, 4, 4.5, 5, 4, 4.5, 3, 5]
   },
   {
-    id: 12,
+    recipeNum: '0012',
     createdAt: '2023-01-15T02:03:43.223Z',
     lastUpdated: '2023-01-15T02:03:43.223Z',
     title: 'Recipe 12',
@@ -531,12 +531,12 @@ export const RECIPES_DATA = [
     },
     description: ['I\'m describing this recipe', 'And I will keep describing it here!'],
     time: {
-      activeTime: 30,
+      activeTime: '30',
       otherTime: {
         marinatingTime: null,
         soakingTime: null
       },
-      totalTime: 45
+      totalTime: '45'
     },
     ingredients: [
       { heading: 'Big Ingredients' },
@@ -547,20 +547,22 @@ export const RECIPES_DATA = [
       'Ingredient 4',
       'Ingredient 5'
     ],
-    directions: {
-      step1: {
+    directions: [
+      {
         heading: 'Step 1',
         description: 'Do a thing with the ingredients.'
       },
-      step2: {
+      {
         heading: 'Step 2',
         description: 'Cook that thing you just did.'
       },
-      step3: {
+      {
         heading: 'Step 3',
         description: 'Oh wow, looking good! Put it on a plate.'
       }
-    },
+    ],
     ratings: [4, 5, 3.5, 4, 4.5, 5, 4, 4.5, 3, 5]
   }
 ]
+
+export default RECIPES_DATA;

@@ -1,4 +1,3 @@
-import { Fragment } from 'react';
 import { Outlet } from 'react-router-dom';
 
 import Header from '../../components/header/header.components';
@@ -9,7 +8,7 @@ import Footer from '../../components/footer/footer.component';
 
 const GlobalElements = ({ socialMediums }) => {
   return (
-    <Fragment>
+    <>
       <Header />
       <Outlet />
       <Section idTag="subscribe">
@@ -20,7 +19,7 @@ const GlobalElements = ({ socialMediums }) => {
         lines={['Follow Me']}
         socialMediums={socialMediums}
       />
-    </Fragment>
+    </>
   )
 }
 

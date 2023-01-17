@@ -3,7 +3,7 @@ import { AdminUserContext } from '../../context/admin-user.context';
 import {
   signInWithGooglePopup,
   signOutAdminUser
-} from '../../utils/firebase/firebase.utils';
+} from '../../utils/firebase.utils';
 
 import Section from '../../components/section/section.component';
 import SectionHeading from '../../components/section-heading/section-heading.component';

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { GetSingleRecipeDocument } from '../../utils/firebase/firebase.utils';
+import { GetSingleRecipeDocument } from '../../utils/firebase.utils';
 import { getAverageRating, renderStars } from '../../utils/helper-functions.utils';
 
 import Section from '../../components/section/section.component';
@@ -17,8 +17,9 @@ const Recipe = () => {
       setRecipe(fetchedRecipe);
     }
 
+
     getRecipe();
-  }, [])
+  }, [recipeId])
 
   const {
     createdAt,
@@ -112,7 +113,7 @@ const Recipe = () => {
                 return <li key={index}>{renderedIngredient}</li>;
               })}
             </ul>
-            {Object.values(directions).map((step, index) => {
+            {directions.map((step, index) => {
               return (
                 <div className="recipe__step" key={index}>
                   <h3>{step.heading}</h3>

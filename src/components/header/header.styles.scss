@@ -13,7 +13,8 @@ nav.top-nav {
   max-width: calc(100% - 45px);
 }
 
-.top-nav__logo>img {
+.top-nav__logo>img,
+.top-nav__logo>a>img {
   width: 100%;
 }
 
