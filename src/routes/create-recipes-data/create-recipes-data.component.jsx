@@ -1,8 +1,8 @@
 import { useEffect, useContext } from 'react';
 import { AdminUserContext } from '../../context/admin-user.context';
-import { addCollectionAndDocuments } from '../../utils/firebase.utils';
+// import { addCollectionAndDocuments } from '../../utils/firebase.utils';
 
-import RECIPES_DATA from '../../data/data';
+// import RECIPES_DATA from '../../data/data';
 
 const CreateRecipesData = () => {
   const { currentUser } = useContext(AdminUserContext);
@@ -12,12 +12,11 @@ const CreateRecipesData = () => {
 
   useEffect(() => {
     // addCollectionAndDocuments('recipes', RECIPES_DATA);
-    console.log('logged in');
-  }, [])
+    console.log(currentUser);
+  }, [currentUser])
 
   return (
     <div>
-
       <h2>Creating a recipes database... look to the console!</h2>
     </div>
   )
