@@ -74,7 +74,7 @@ const App = () => {
         </Route>
       </Route>
       <Route
-        path="/admin"
+        path="admin"
         element={
           <Admin />
         }
