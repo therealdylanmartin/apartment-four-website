@@ -8,20 +8,24 @@ import Recipes from './routes/recipes/recipes.component';
 import CreateRecipesData from './routes/create-recipes-data/create-recipes-data.component';
 import Admin from './routes/admin/admin';
 
+// Shoelace Style UI
+import '@shoelace-style/shoelace/dist/themes/light.css';
+import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path';
+
 // import Fontawesome icons for use
 import { library as faLibrary } from '@fortawesome/fontawesome-svg-core';
-import { faStar, faStarHalfStroke, faBars, faSpinner } from '@fortawesome/free-solid-svg-icons';
-import { faStar as faStarEmpty, faEnvelope } from '@fortawesome/free-regular-svg-icons';
+import { faBars, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { faTiktok, faInstagram, faPinterestP } from '@fortawesome/free-brands-svg-icons';
 import Recipe from './routes/recipe/recipe.component';
 
+// Set path for Shoelace Style
+setBasePath('https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0/dist/');
+
 // add imported FA icons to faLibrary
 faLibrary.add(
-  faStar,
-  faStarHalfStroke,
   faBars,
   faSpinner,
-  faStarEmpty,
   faEnvelope,
   faTiktok,
   faInstagram,

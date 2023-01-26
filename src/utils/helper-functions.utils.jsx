@@ -1,5 +1,4 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import { SlRating } from '@shoelace-style/shoelace/dist/react';
 // function for getting average rating from recipe ratings array
 export const getAverageRating = (ratingsArray) => {
   return ratingsArray.reduce((partialSum, currentNum) => partialSum + currentNum, 0) / ratingsArray.length;
@@ -8,38 +7,28 @@ export const getAverageRating = (ratingsArray) => {
 // function for rendering star rating
 export const renderStars = (score) => {
   // round down for number of full stars
-  const fullStars = Math.floor(score);
+  let fullStars = Math.floor(score);
   // grab any partial star data after decimal
-  const partialStar = Number(score.toString().split('.')[1].split('')[0]);
-  // initialize allStars as empty array, set current key to 1
-  let allStars = [];
-  let currentKey = 1;
-  // loop through all full stars and push icons to allStars array
-  for (let i = 0; i < fullStars; i++) {
-    allStars.push(<FontAwesomeIcon icon="fa-solid fa-star" key={currentKey} />);
-    currentKey++;
-  }
+  const partialStar = Number(score.toString().split('.')[1][0]);
+
   // check for partialStar data
   if (partialStar) {
-    // if partialStar exists, check value to render full, half, or empty star icon
+    // if partialStar exists, check value to render another full or half star, if any
     if (partialStar > 7) {
-      allStars.push(<FontAwesomeIcon icon="fa-solid fa-star" key={currentKey} />);
-      currentKey++;
+      fullStars++;
     } else if (partialStar > 2) {
-      allStars.push(<FontAwesomeIcon icon="fa-solid fa-star-half-stroke" key={currentKey} />);
-      currentKey++;
-    } else {
-      allStars.push(<FontAwesomeIcon icon="fa-regular fa-star" key={currentKey} />);
-      currentKey++;
+      fullStars += .5;
     }
   }
-  // if the length of allStars hasn't reached 5, there are empty stars to render
-  if (allStars.length !== 5) {
-    for (let i = allStars.length; i < 5; i++) {
-      allStars.push(<FontAwesomeIcon icon="fa-regular fa-star" key={currentKey} />);
-      currentKey++;
-    }
-  }
+
   // return the allStars array of jsx elements
-  return allStars;
+  return (
+    <SlRating
+      label="Rating"
+      precision="0.5"
+      value={fullStars}
+      readonly
+    >
+    </SlRating>
+  )
 }
