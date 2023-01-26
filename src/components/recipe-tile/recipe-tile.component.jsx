@@ -12,7 +12,7 @@ const RecipeTile = ({ recipe }) => {
   const averageRating = getAverageRating(ratings);
 
   return (
-    <Link className="grid__tile-container" href={`/recipes/${recipeSlug}`}>
+    <Link className="grid__tile-container" to={`/recipes/${recipeSlug}`}>
       <div className="grid__tile" style={{ backgroundImage: `url(${imageForMobile.src})` }}>
         <p className="recipe__time">{time.totalTime}m</p>
         <h6 className="recipe__rating" aria-label={`Rated ${averageRating} stars from ${ratings.length} reviews`}>
