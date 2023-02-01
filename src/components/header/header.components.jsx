@@ -1,78 +1,65 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { HashLink } from 'react-router-hash-link';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { SlIcon, SlDrawer } from '@shoelace-style/shoelace/dist/react';
 
-import './header.styles.scss'
+import './header.styles.scss';
 
 const Header = () => {
-  const [isNavToggled, setIsNavToggled] = useState(false);
-  const [isAtIndex, setIsAtIndex] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  // Get pathname to check for index
-  const pathName = document.location.pathname;
-
-  useEffect(() => {
-    if (pathName === '/') {
-      setIsAtIndex(true);
-    } else {
-      setIsAtIndex(false);
-    }
-  }, [pathName])
-
-  const toggleNavMenu = () => {
-    setIsNavToggled(!isNavToggled);
+  const hashLinkClickHandler = (event) => {
+    setIsOpen(false);
+    setTimeout(() => {
+      const aboutMeElem = document.getElementById('about-me');
+      aboutMeElem.scrollIntoView({
+        behavior: 'smooth'
+      })
+    }, 300)
   }
 
   return (
     <header>
       <nav className="top-nav">
-        {isAtIndex ?
-          <h1 className="top-nav__logo">
-            <img src="/assets/images/logos/logo_header.png" alt="Apartment Four" />
-          </h1>
-          :
-          <h1 className="top-nav__logo">
-            <a href="/">
-              <img src="/assets/images/logos/logo_header.png" alt="Apartment Four" />
-            </a>
-          </h1>
-        }
+        <Link className="top-nav__logo" to="/">
+          <img src="/assets/images/logos/logo_header.png" alt="Apartment Four" />
+        </Link>
         <div className="top-nav__sandwich-nav">
-          <button className="sandwich-nav__toggle" onClick={toggleNavMenu}>
-            <FontAwesomeIcon icon="fa-solid fa-bars" />
+          <button className="sandwich-nav__toggle" onClick={() => setIsOpen(true)}>
+            <SlIcon name="list" />
           </button>
-          <div className={`sandwich-nav__links ${isNavToggled ? '' : 'hidden'}`}>
-            <button className="sandwich-nav__close" onClick={toggleNavMenu}>&times;</button>
+          <SlDrawer
+            className="sandwich-nav__links"
+            open={isOpen}
+            onSlAfterHide={() => setIsOpen(false)}
+          >
             <ul>
               <li>
                 <Link
                   to="/recipes"
-                  onClick={toggleNavMenu}
+                  onClick={() => setIsOpen(false)}
                 >
                   Recipes
                 </Link>
               </li>
               <li>
-                <HashLink
-                  smooth
+                <Link
                   to="/#about-me"
-                  onClick={toggleNavMenu}
+                  onClick={hashLinkClickHandler}
                 >
                   About Me
-                </HashLink>
+                </Link>
               </li>
               <li>
                 <a
                   href="mailto:rachael@fromapartmentfour.com"
-                  onClick={toggleNavMenu}
+                  onClick={() => setIsOpen(false)}
                 >
                   Contact
                 </a>
               </li>
             </ul>
-          </div>
+          </SlDrawer>
         </div>
       </nav>
     </header>

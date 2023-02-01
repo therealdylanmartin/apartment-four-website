@@ -1,27 +1,19 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { SlIcon } from '@shoelace-style/shoelace/dist/react';
 
 import './social-nav.styles.scss';
 
-const SocialNav = ({ socialMediums }) => {
-  let currentKey = 0;
-
-  return (
-    <nav className="social-nav">
-      <ul>
-        {socialMediums.map(medium => {
-          currentKey++;
-
-          return (
-            <li key={currentKey}>
-              <a href={medium.path}>
-                <FontAwesomeIcon icon={`fa-brands fa-${medium.faCode}`} />
-              </a>
-            </li>
-          )
-        })}
-      </ul>
-    </nav>
-  )
-}
+const SocialNav = ({ socialMediums }) => (
+  <nav className="social-nav">
+    <ul>
+      {socialMediums.map((medium, i) => (
+        <li key={i}>
+          <a href={medium.path}>
+            <SlIcon name={medium.type.toLowerCase()} />
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+)
 
 export default SocialNav;

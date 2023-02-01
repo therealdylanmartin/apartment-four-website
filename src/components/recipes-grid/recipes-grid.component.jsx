@@ -2,17 +2,24 @@ import { useContext } from 'react';
 import { RecipesContext } from '../../context/recipes.context';
 
 import RecipeTile from '../recipe-tile/recipe-tile.component';
-import LoadingSpinner from '../loading-spinner/loading-spinner.component';
+import RecipeTileSkeleton from '../recipe-tile-skeleton/recipe-tile-skeleton.component';
 
 import './recipes-grid.styles.scss';
 
-const RecipesGrid = ({ limit, pagination }) => {
+const RecipesGrid = ({ limit = 24, pagination }) => {
   // intialize recipes from context
   const { recipes } = useContext(RecipesContext);
   let renderedRecipes = recipes;
+  let dummyRecipes = [];
 
-  if (recipes.length && limit) {
+  for (let i = 0; i < limit; i++) {
+    dummyRecipes.push('');
+  }
+
+  if (recipes.length && limit && !pagination) {
     renderedRecipes = renderedRecipes.slice(0, limit);
+  } else if (pagination) {
+    console.log('pagination set to true');
   }
 
   // render the recipes grid
@@ -21,13 +28,17 @@ const RecipesGrid = ({ limit, pagination }) => {
 
       {/* map through recipes array to display grid items */}
       {renderedRecipes.length ?
-        renderedRecipes.map(recipe => {
+        renderedRecipes.map((recipe, i) => {
           return (
             <RecipeTile recipe={recipe} key={recipe.recipeNum} />
           )
         })
         :
-        <LoadingSpinner />
+        dummyRecipes.map((dummyRecipe, i) => {
+          return (
+            <RecipeTileSkeleton key={i} />
+          )
+        })
       }
     </div>
   )

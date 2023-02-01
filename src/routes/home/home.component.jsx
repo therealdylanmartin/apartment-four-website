@@ -36,7 +36,7 @@ const Home = ({ aboutInfo }) => {
         <Button
           buttonText="Get in Touch"
           path="mailto:rachael@fromapartmentfour.com"
-          faCode={{ style: 'regular', icon: 'envelope' }}
+          iconName="envelope-at"
         />
       </Section>
     </main>
