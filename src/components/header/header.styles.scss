@@ -29,55 +29,39 @@ nav.top-nav {
   font-size: 1.75em;
 }
 
-.sandwich-nav__links {
+.sandwich-nav__toggle>sl-icon {
+  font-size: 1.4em;
+}
+
+.sandwich-nav__links::part(panel) {
   align-items: center;
   background-color: var(--color-primary);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  opacity: 1;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100vw;
-  z-index: 2;
-  transition: all .3s ease-in;
+  --size: 100vw;
 }
 
-.sandwich-nav__links.hidden {
-  opacity: 0;
-  transform: translateX(100vw)
+.sandwich-nav__links::part(header) {
+  align-self: flex-end;
 }
 
-.sandwich-nav__close {
-  align-items: center;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  border: none;
-  background-color: transparent;
-  color: var(--color-secondary);
-  cursor: pointer;
+.sandwich-nav__links::part(close-button) {
+  color: #fff;
+  font-size: 1.8em;
+}
+
+.sandwich-nav__links ul {
   display: flex;
-  font-size: 10vw;
-  height: 30px;
-  position: absolute;
-  top: 20px;
-  right: 15px;
-}
-
-.sandwich-nav__links>ul {
+  flex-direction: column;
+  height: 50vh;
+  justify-content: space-around;
   list-style-type: none;
   padding-left: 0;
   text-align: center;
 }
 
-.sandwich-nav__links>ul>li {
-  line-height: 2;
-}
-
-.sandwich-nav__links>ul>li>a {
+.sandwich-nav__links ul>li>a {
   color: var(--color-secondary);
   font-family: var(--font-display);
   font-size: 9vw;
@@ -86,7 +70,7 @@ nav.top-nav {
   text-transform: lowercase;
 }
 
-.sandwich-nav__links>ul>li {
+.sandwich-nav__links ul>li {
 
   &>a:hover,
   &>a:active {

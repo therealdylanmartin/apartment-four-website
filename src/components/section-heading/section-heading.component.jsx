@@ -3,10 +3,10 @@ const SectionHeading = ({ lines, centered }) => {
   const getInnerContent = () => {
     let innerContent = [];
 
-    for (let i = 0; i < lines.length; i++) {
-      innerContent.push(lines[i]);
+    lines.forEach((line, i) => {
+      innerContent.push(line);
       innerContent.push(<br key={i} />);
-    }
+    })
     innerContent.pop();
 
     return innerContent;

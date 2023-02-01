@@ -5,6 +5,7 @@ import ABOUT_INFO from './data/about-info-data.json';
 import GlobalElements from './routes/global-elements/global-elements.component';
 import Home from './routes/home/home.component';
 import Recipes from './routes/recipes/recipes.component';
+import Recipe from './routes/recipe/recipe.component';
 import CreateRecipesData from './routes/create-recipes-data/create-recipes-data.component';
 import Admin from './routes/admin/admin';
 
@@ -12,30 +13,23 @@ import Admin from './routes/admin/admin';
 import '@shoelace-style/shoelace/dist/themes/light.css';
 import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path';
 
-// import Fontawesome icons for use
-import { library as faLibrary } from '@fortawesome/fontawesome-svg-core';
-import { faBars, faSpinner } from '@fortawesome/free-solid-svg-icons';
-import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
-import { faTiktok, faInstagram, faPinterestP } from '@fortawesome/free-brands-svg-icons';
-import Recipe from './routes/recipe/recipe.component';
-
 // Set path for Shoelace Style
 setBasePath('https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0/dist/');
-
-// add imported FA icons to faLibrary
-faLibrary.add(
-  faBars,
-  faSpinner,
-  faEnvelope,
-  faTiktok,
-  faInstagram,
-  faPinterestP
-);
 
 // Build app
 const App = () => {
   // Use dummy 'About Me' info
   const aboutInfo = ABOUT_INFO;
+
+  // Scroll to About me section if pathname is about-me
+  if (window.location.hash === '#about-me') {
+    setTimeout(() => {
+      const aboutMeElem = document.getElementById('about-me');
+      aboutMeElem.scrollIntoView({
+        behavior: 'smooth'
+      })
+    }, 300)
+  }
 
   // Render the app with Header, Footer, and Pages inside Router element
   return (

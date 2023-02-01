@@ -27,6 +27,7 @@ export const renderStars = (score) => {
       label="Rating"
       precision="0.5"
       value={fullStars}
+      style={{ '--symbol-size': '1rem' }}
       readonly
     >
     </SlRating>

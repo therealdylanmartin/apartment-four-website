@@ -1,0 +1,43 @@
+.grid__tile {
+  background-color: #ccc;
+  position: relative;
+}
+
+.recipe-skeleton__spinner {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+}
+
+.recipe-skeleton__time {
+  height: 15px;
+  position: absolute;
+  bottom: 14px;
+  left: 7px;
+  width: 30px;
+}
+
+.recipe-skeleton__rating {
+  display: flex;
+  height: 18px;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 11px;
+  right: 7px;
+  width: 98px;
+}
+
+.recipe-skeleton__star {
+  clip-path: polygon(50% 0%, 63% 31%, 98% 35%, 72% 57%, 79% 91%, 50% 75%, 21% 91%, 27% 58%, 2% 35%, 37% 32%);
+  height: 18px;
+  width: 18px;
+}
+
+.recipe-skeleton__title {
+  height: 20px;
+  margin-top: 8.5px;
+  max-width: 80%;
+}
