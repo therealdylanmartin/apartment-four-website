@@ -7,21 +7,18 @@
   "socialMediums": [
     {
       "type": "TikTok",
-      "path": "https://tiktok.com",
-      "handle": "fromapartmentfour",
-      "faCode": "tiktok"
+      "path": "https://tiktok.com/fromapartmentfour",
+      "handle": "fromapartmentfour"
     },
     {
       "type": "Instagram",
-      "path": "https://instagram.com",
-      "handle": "fromapartmentfour",
-      "faCode": "instagram"
+      "path": "https://instagram.com/fromapartmentfour",
+      "handle": "fromapartmentfour"
     },
     {
       "type": "Pinterest",
-      "path": "https://pinterest.com",
-      "handle": "fromapartmentfour",
-      "faCode": "pinterest-p"
+      "path": "https://pinterest.com/fromapartmentfour",
+      "handle": "fromapartmentfour"
     }
   ]
 }

@@ -1,16 +1,14 @@
 import { Link } from "react-router-dom";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { SlIcon } from "@shoelace-style/shoelace/dist/react";
 
 import './button.styles.scss'
 
-const Button = ({ buttonText, path, onClickHandler, faCode }) => {
-  let faIcon;
-  let renderedText = buttonText;
+const Button = ({ buttonText, path, onClickHandler, iconName }) => {
+  let slIcon;
 
-  if (faCode) {
-    faIcon = <FontAwesomeIcon icon={`fa-${faCode.style} fa-${faCode.icon}`} />;
-    renderedText += ' ';
+  if (iconName) {
+    slIcon = <SlIcon name={iconName} />;
   }
 
   const buttonContainer = (children) => {
@@ -25,12 +23,12 @@ const Button = ({ buttonText, path, onClickHandler, faCode }) => {
 
   if (path) {
     if (path.includes('mailto:') || path.includes('tel:')) {
-      currentChildren = <a className="button" href={path}>{renderedText}{faIcon}</a>;
+      currentChildren = <a className="button" href={path}>{buttonText}{slIcon}</a>;
     } else {
-      currentChildren = <Link className="button" to={path}>{renderedText}{faIcon}</Link>;
+      currentChildren = <Link className="button" to={path}>{buttonText}{slIcon}</Link>;
     }
   } else {
-    currentChildren = <button className="button" onClick={onClickHandler}>{renderedText}{faIcon}</button>
+    currentChildren = <button className="button" onClick={onClickHandler}>{buttonText}{slIcon}</button>
   }
 
   return buttonContainer(currentChildren);

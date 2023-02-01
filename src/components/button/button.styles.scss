@@ -32,8 +32,8 @@ p+.button__container>.button {
     color: var(--color-primary);
   }
 
-  & svg {
-    transform: translateX(5px);
+  & sl-icon {
+    margin-left: 10px;
   }
 }
 
