@@ -3,7 +3,6 @@ import SectionHeading from '../../components/section-heading/section-heading.com
 import RecipesGrid from '../../components/recipes-grid/recipes-grid.component';
 
 const Recipes = () => {
-
   return (
     <main>
       <Section idTag="all-recipes">

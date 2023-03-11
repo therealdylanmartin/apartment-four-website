@@ -1,0 +1,7 @@
+.sl-input {
+  width: 100%;
+}
+
+.sl-input::part(form-control-label) {
+  margin: 0 0 7px 5px;
+}

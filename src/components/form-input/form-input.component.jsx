@@ -1,13 +1,18 @@
-const FormInput = ({ type, id, placeholder, defaultValue = '', label = '' }) => {
+import { SlInput } from '@shoelace-style/shoelace/dist/react';
+
+import './form-input.styles.scss';
+
+const FormInput = ({ type, name, placeholder, value = '', label = '', onChangeHandler }) => {
   return (
     <>
-      <label htmlFor={id}>{label}</label>
-      <input
+      <SlInput
+        className="sl-input"
+        label={label}
         type={type}
-        name={id}
-        id={id}
-        defaultValue={defaultValue}
+        name={name}
+        value={value}
         placeholder={placeholder}
+        onSlInput={onChangeHandler}
       />
     </>
   )

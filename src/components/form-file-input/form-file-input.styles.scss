@@ -1,0 +1,36 @@
+.file-input__label {
+  display: block;
+  margin: 0 0 7px 5px;
+}
+
+.file-input {
+  font-size: 1em;
+  width: calc(100% - 20px);
+}
+
+.file-input::file-selector-button {
+  align-items: center;
+  background-color: var(--color-primary);
+  border: 2px var(--color-primary) solid;
+  border-radius: 10px;
+  color: var(--color-secondary);
+  cursor: pointer;
+  display: inline-flex;
+  height: 50px;
+  font-family: var(--font-button);
+  font-size: 1.4em;
+  justify-content: center;
+  letter-spacing: .04em;
+  margin: 0 10px 10px 0;
+  padding: 0 30px 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color .3s ease-out, background-color .3s ease-in;
+  min-width: 300px;
+
+  &:hover,
+  &:active {
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+  }
+}

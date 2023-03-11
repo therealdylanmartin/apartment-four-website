@@ -1,11 +1,13 @@
+import { v4 as uuidv4 } from 'uuid';
+
 const SectionHeading = ({ lines, centered }) => {
 
   const getInnerContent = () => {
     let innerContent = [];
 
-    lines.forEach((line, i) => {
+    lines.forEach(line => {
       innerContent.push(line);
-      innerContent.push(<br key={i} />);
+      innerContent.push(<br key={uuidv4()} />);
     })
     innerContent.pop();
 

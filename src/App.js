@@ -6,7 +6,8 @@ import GlobalElements from './routes/global-elements/global-elements.component';
 import Home from './routes/home/home.component';
 import Recipes from './routes/recipes/recipes.component';
 import Recipe from './routes/recipe/recipe.component';
-import CreateRecipesData from './routes/create-recipes-data/create-recipes-data.component';
+import EditRecipe from './routes/edit-recipe/edit-recipe.component';
+// import CreateRecipesData from './routes/create-recipes-data/create-recipes-data.component';
 import Admin from './routes/admin/admin';
 
 // Shoelace Style UI
@@ -58,17 +59,31 @@ const App = () => {
             }
           />
           <Route
-            path=":recipeId"
+            path="new"
             element={
-              <Recipe />
+              <EditRecipe />
             }
           />
-          <Route
+          <Route path=":recipeId/">
+            <Route
+              index
+              element={
+                <Recipe />
+              }
+            />
+            <Route
+              path="edit"
+              element={
+                <EditRecipe />
+              }
+            />
+          </Route>
+          {/* <Route
             path="create-database"
             element={
               <CreateRecipesData />
             }
-          />
+          /> */}
         </Route>
       </Route>
       <Route

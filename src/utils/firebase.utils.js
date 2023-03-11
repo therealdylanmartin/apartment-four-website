@@ -12,10 +12,17 @@ import {
   doc,
   getDoc,
   getDocs,
+  setDoc,
+  updateDoc,
   collection,
-  writeBatch,
   query
 } from 'firebase/firestore';
+import {
+  getStorage,
+  ref,
+  uploadBytesResumable,
+  getDownloadURL
+} from "firebase/storage";
 // import { getAnalytics } from 'firebase/analytics';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -34,6 +41,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const firebaseApp = initializeApp(firebaseConfig);
+const storage = getStorage(firebaseApp);
 // const analytics = getAnalytics(firebaseApp);
 
 // Setup GoogleAuthProvider
@@ -45,6 +53,8 @@ googleProvider.setCustomParameters({
 export const auth = getAuth();
 
 export const signInWithGooglePopup = () => signInWithPopup(auth, googleProvider);
+
+export const signOutAdminUser = async () => await signOut(auth);
 
 export const db = getFirestore();
 
@@ -60,22 +70,7 @@ export const createAdminUserDocumentFromAuth = async (userAuth) => {
   }
 }
 
-export const signOutAdminUser = async () => await signOut(auth);
-
 export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth, callback);
-
-export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
-  const collectionRef = collection(db, collectionKey);
-  const batch = writeBatch(db);
-
-  objectsToAdd.forEach(object => {
-    const docRef = doc(collectionRef, object.title.toLowerCase());
-    batch.set(docRef, object);
-  })
-
-  await batch.commit();
-  console.log('done');
-}
 
 export const getRecipesAndDocuments = async () => {
   const collectionRef = collection(db, 'recipes');
@@ -84,19 +79,17 @@ export const getRecipesAndDocuments = async () => {
 
   const recipesMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
     const data = docSnapshot.data();
-    const { title } = data;
+    const recipeId = docSnapshot.id;
 
-    acc[title.toLowerCase()] = data;
+    acc[recipeId] = { ...data, recipeId };
 
     return acc;
   }, {})
 
-  const recipes = Object.values(recipesMap);
-
-  return recipes;
+  return recipesMap;
 }
 
-export const GetSingleRecipeDocument = async (recipeId) => {
+export const getSingleRecipeDocument = async (recipeId) => {
   const recipeSnapshot = await getDoc(doc(db, 'recipes', recipeId.replace(/-/g, ' ')));
 
   if (recipeSnapshot.exists()) {
@@ -106,4 +99,27 @@ export const GetSingleRecipeDocument = async (recipeId) => {
     console.log("Can't find that document");
     return 404;
   }
+}
+
+export const createSingleRecipeDocument = async (recipeId, newRecipe) => {
+  const recipeRef = doc(db, 'recipes', recipeId);
+
+  await setDoc(recipeRef, newRecipe);
+  console.log('Recipe added!');
+}
+
+export const updateSingleRecipeDocument = async (recipeId, updatedRecipe) => {
+  const recipeRef = doc(db, 'recipes', recipeId);
+
+  await updateDoc(recipeRef, updatedRecipe);
+  console.log('Recipe updated!');
+}
+
+export const uploadImageToStorage = async (image) => {
+  // Upload image to the object
+  const storageRef = ref(storage, image.name);
+  const uploadTask = await uploadBytesResumable(storageRef, image);
+  const imagePath = await getDownloadURL(uploadTask.ref);
+
+  return imagePath;
 }
