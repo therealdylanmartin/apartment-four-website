@@ -1,0 +1,45 @@
+.circle-button {
+  align-items: center;
+  background-color: var(--color-primary);
+  border: 2px var(--color-primary) solid;
+  border-radius: 50%;
+  color: var(--color-secondary);
+  cursor: pointer;
+  display: inline-flex;
+  height: 40px;
+  font-size: 1.3em;
+  justify-content: center;
+  margin: 0;
+  text-decoration: none;
+  transition: color .3s ease-out, background-color .3s ease-in;
+  width: 40px;
+
+  &:hover,
+  &:active {
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+  }
+}
+
+.circle-button.fixed {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 2;
+
+  &.push-left {
+    right: 70px;
+  }
+}
+
+.circle-button.cancel {
+  background-color: var(--color-red);
+  border: 2px var(--color-red) solid;
+  color: var(--color-secondary);
+
+  &:hover,
+  &:active {
+    background-color: var(--color-secondary);
+    color: var(--color-red);
+  }
+}

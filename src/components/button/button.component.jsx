@@ -4,7 +4,8 @@ import { SlIcon } from "@shoelace-style/shoelace/dist/react";
 
 import './button.styles.scss'
 
-const Button = ({ buttonText, path, onClickHandler, iconName }) => {
+const Button = ({ buttonText, path, onClickHandler, iconName, className }) => {
+  const buttonClasses = className ? `button ${className}` : 'button';
   let slIcon;
 
   if (iconName) {
@@ -23,16 +24,15 @@ const Button = ({ buttonText, path, onClickHandler, iconName }) => {
 
   if (path) {
     if (path.includes('mailto:') || path.includes('tel:')) {
-      currentChildren = <a className="button" href={path}>{buttonText}{slIcon}</a>;
+      currentChildren = <a className={buttonClasses} href={path}>{buttonText}{slIcon}</a>;
     } else {
-      currentChildren = <Link className="button" to={path}>{buttonText}{slIcon}</Link>;
+      currentChildren = <Link className={buttonClasses} to={path}>{buttonText}{slIcon}</Link>;
     }
   } else {
-    currentChildren = <button className="button" onClick={onClickHandler}>{buttonText}{slIcon}</button>
+    currentChildren = <button className={buttonClasses} onClick={onClickHandler}>{buttonText}{slIcon}</button>
   }
 
   return buttonContainer(currentChildren);
 }
 
 export default Button;
-

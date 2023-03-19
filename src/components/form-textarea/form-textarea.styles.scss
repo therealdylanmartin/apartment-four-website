@@ -1,0 +1,15 @@
+.sl-textarea {
+  width: 100%;
+}
+
+.input-label+.sl-textarea {
+  margin-top: 7px;
+}
+
+.sl-textarea::part(form-control-label) {
+  margin: 0 0 7px 5px;
+}
+
+.sl-textarea::part(form-control-help-text) {
+  margin: 7px 0 0 5px;
+}

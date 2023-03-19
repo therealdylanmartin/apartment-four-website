@@ -1,5 +1,6 @@
-import { useContext } from 'react';
-import { RecipesContext } from '../../context/recipes.context';
+import { useOutletContext } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
+import { sortRecipes } from '../../utils/helper-functions.utils';
 
 import RecipeTile from '../recipe-tile/recipe-tile.component';
 import RecipeTileSkeleton from '../recipe-tile-skeleton/recipe-tile-skeleton.component';
@@ -8,15 +9,16 @@ import './recipes-grid.styles.scss';
 
 const RecipesGrid = ({ limit = 24, pagination }) => {
   // intialize recipes from context
-  const { recipes } = useContext(RecipesContext);
-  let renderedRecipes = recipes;
+  const { recipes } = useOutletContext();
+  // Sort recipes to display
+  let renderedRecipes = sortRecipes(recipes);
   let dummyRecipes = [];
 
   for (let i = 0; i < limit; i++) {
     dummyRecipes.push('');
   }
 
-  if (recipes.length && limit && !pagination) {
+  if (renderedRecipes.length && limit && !pagination) {
     renderedRecipes = renderedRecipes.slice(0, limit);
   } else if (pagination) {
     console.log('pagination set to true');
@@ -28,15 +30,15 @@ const RecipesGrid = ({ limit = 24, pagination }) => {
 
       {/* map through recipes array to display grid items */}
       {renderedRecipes.length ?
-        renderedRecipes.map((recipe, i) => {
+        renderedRecipes.map(recipe => {
           return (
-            <RecipeTile recipe={recipe} key={recipe.recipeNum} />
+            <RecipeTile recipe={recipe} key={uuidv4()} />
           )
         })
         :
-        dummyRecipes.map((dummyRecipe, i) => {
+        dummyRecipes.map(dummyRecipe => {
           return (
-            <RecipeTileSkeleton key={i} />
+            <RecipeTileSkeleton key={uuidv4()} />
           )
         })
       }

@@ -1,26 +1,31 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { GetSingleRecipeDocument } from '../../utils/firebase.utils';
-import { getAverageRating, renderStars } from '../../utils/helper-functions.utils';
+import { useParams, useOutletContext } from 'react-router-dom';
+import { useAuth } from '../../context/admin-user.context';
+import { v4 as uuidv4 } from 'uuid';
+import { getAverageRating, renderStars, formatDate } from '../../utils/helper-functions.utils';
 
 import Section from '../../components/section/section.component';
+import CircleButton from '../../components/circle-button/circle-button.component';
 import SectionHeading from '../../components/section-heading/section-heading.component';
 import LoadingSpinner from '../../components/loading-spinner/loading-spinner.component';
 
 const Recipe = () => {
+  // Get recipes from context
+  const { recipes } = useOutletContext();
+  const { currentUser } = useAuth();
+  // Initialize empty object for recipe state
   const [recipe, setRecipe] = useState({});
+  // Get recipe id from params
   const { recipeId } = useParams();
 
   useEffect(() => {
-    const getRecipe = async () => {
-      const fetchedRecipe = await GetSingleRecipeDocument(recipeId);
-      setRecipe(fetchedRecipe);
+    // Set current recipe if recipes object has items
+    if (Object.keys(recipes).length && recipeId) {
+      setRecipe(recipes[recipeId.replaceAll('-', ' ')]);
     }
+  }, [recipes, recipeId])
 
-
-    getRecipe();
-  }, [recipeId])
-
+  // Deconstruct properties from recipe object
   const {
     createdAt,
     lastUpdated,
@@ -34,38 +39,18 @@ const Recipe = () => {
     ratings
   } = recipe;
 
-  const formatDate = (date) => {
-    let month, day, year;
-
-    const dateArray = date.substring(0, 10).split(/-/g);
-
-    year = dateArray[0];
-
-    if (dateArray[1].charAt(0) === '0') {
-      month = dateArray[1].charAt(1);
-    } else {
-      month = dateArray[1];
-    }
-
-    if (dateArray[2].charAt(0) === '0') {
-      day = dateArray[2].charAt(1);
-    } else {
-      day = dateArray[2];
-    }
-
-    return `${month}/${day}/${year}`;
-  }
-
   const renderOtherTimeCategories = () => {
+    // Initialize empty array for otherTimes to render
     let otherTimeItems = [];
 
     if (time.otherTime) {
       for (const [key, value] of Object.entries(time.otherTime)) {
+        // If value for other time category isn't null, format for rendering
         if (value) {
-          let formattedKey = key.replace(/([A-Z]+)/g, ' $1');
-          formattedKey = formattedKey.charAt(0).toUpperCase() + formattedKey.slice(1);
-
-          otherTimeItems.push(<li>{formattedKey}: {value}</li>);
+          const timeType = key.split('T')[0];
+          const timeTypeCapitalized = `${timeType[0].toUpperCase()}${timeType.slice(1)}`;
+          // Push <li> element to other time array for rendering
+          otherTimeItems.push(<li>{timeTypeCapitalized} Time: {value}m</li>);
         }
       }
     }
@@ -77,9 +62,16 @@ const Recipe = () => {
     <main>
       <Section idTag="single-recipe">
 
-        {/* map through recipes array to display grid items */}
+        {/* check title to see if it is loaded and render recipe */}
         {recipe.title ?
-          <div>
+          <>
+            {currentUser
+              && <CircleButton
+                iconName="pencil-fill"
+                path={`/recipes/${recipeId}/edit`}
+                className="fixed push-left"
+              />
+            }
             <figure>
               <img
                 className="image--mobile"
@@ -93,9 +85,9 @@ const Recipe = () => {
               />
             </figure>
             <SectionHeading lines={[title]} />
-            <p>Recipe created at {formatDate(createdAt)} and last updated {formatDate(lastUpdated)}.</p>
-            {description.map((paragraph, index) => {
-              return <p key={index}>{paragraph}</p>;
+            <p>Recipe created on {formatDate(createdAt)} and last updated {formatDate(lastUpdated)}</p>
+            {description.map(paragraph => {
+              return <p key={uuidv4()}>{paragraph}</p>;
             })}
             {ratings.length ?
               renderStars(getAverageRating(ratings))
@@ -103,25 +95,27 @@ const Recipe = () => {
               ''
             }
             <ul>
-              <li>Active Time: {time.activeTime}</li>
+              <li>Active Time: {time.activeTime}m</li>
               {renderOtherTimeCategories()}
-              <li>Total Time: {time.totalTime}</li>
+              <li>Total Time: {time.totalTime}m</li>
             </ul>
             <ul>
-              {ingredients.map((ingredient, index) => {
+              {ingredients.map(ingredient => {
                 const renderedIngredient = ingredient.heading ? <h3>{ingredient.heading}</h3> : ingredient;
-                return <li key={index}>{renderedIngredient}</li>;
+                return <li key={uuidv4()}>{renderedIngredient}</li>;
               })}
             </ul>
-            {directions.map((step, index) => {
+            {directions.map(step => {
               return (
-                <div className="recipe__step" key={index}>
+                <div className="recipe__step" key={uuidv4()}>
                   <h3>{step.heading}</h3>
-                  <p>{step.description}</p>
+                  {step.description.map(paragraph => (
+                    <p key={uuidv4()}>{paragraph}</p>
+                  ))}
                 </div>
               )
             })}
-          </div>
+          </>
           :
           <LoadingSpinner />
         }

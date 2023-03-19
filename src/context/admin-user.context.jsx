@@ -1,10 +1,7 @@
-import { createContext, useState, useEffect } from 'react';
+import { createContext, useState, useEffect, useContext } from 'react';
 import { createAdminUserDocumentFromAuth, onAuthStateChangedListener } from '../utils/firebase.utils';
 
-export const AdminUserContext = createContext({
-  currentUser: null,
-  setCurrentUser: () => null
-})
+export const AdminUserContext = createContext(null);
 
 export const AdminUserProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
@@ -21,5 +18,11 @@ export const AdminUserProvider = ({ children }) => {
     return unsubscribe;
   }, [])
 
-  return <AdminUserContext.Provider value={value}>{children}</AdminUserContext.Provider>;
+  return (
+    <AdminUserContext.Provider value={value}>
+      {children}
+    </AdminUserContext.Provider>
+  )
 }
+
+export const useAuth = () => useContext(AdminUserContext);

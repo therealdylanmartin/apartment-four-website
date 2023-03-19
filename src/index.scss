@@ -5,6 +5,8 @@
   --color-secondary: #f7f6ef;
   --color-star: #F0D020;
   --color-near-black: #1c1c1c;
+  --color-gray: #d6d6d6;
+  --color-red: #b50717;
   // theme fonts
   --font-display: mostra-nuova, sans-serif;
   --font-heading: desire-pro, serif;
@@ -40,7 +42,10 @@ footer {
 
 section {
   padding-top: 80px;
-  padding-bottom: 80px;
+
+  &:last-child {
+    padding-bottom: 80px;
+  }
 
   &>*:not(img):not(figure) {
     margin-left: 15px;
@@ -60,6 +65,14 @@ section {
   }
 }
 
+figure {
+  margin: 0;
+}
+
+figure>img {
+  max-width: 100%;
+}
+
 .section--inverted {
   background-color: var(--color-primary);
 
@@ -73,14 +86,6 @@ section {
   &>ul {
     color: var(--color-secondary);
   }
-}
-
-figure {
-  margin: 0;
-}
-
-figure>img {
-  max-width: 100%;
 }
 
 .h2 {
@@ -100,4 +105,122 @@ figure>img {
 
 .text-center {
   text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.mr-small {
+  margin-right: 10px;
+}
+
+.input-single {
+  margin-bottom: 15px;
+
+  &>.input-label {
+    margin: 0 0 7px 5px;
+  }
+}
+
+.input-group {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+
+  &>div {
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+
+    &:not(.button__container) {
+      flex-grow: 1;
+    }
+  }
+
+  &>.time-input {
+    &:nth-child(even) {
+      margin-right: 0;
+    }
+
+    &:nth-child(1),
+    &:nth-child(2) {
+      margin-bottom: 15px;
+    }
+  }
+
+  &>.image-upload-container:nth-child(1) {
+    margin-right: 0;
+  }
+
+  &>.button__container {
+    &:not(:first-child)>.button {
+      margin-top: 5px;
+    }
+
+    &:not(:last-child)>.button {
+      margin-bottom: 5px;
+    }
+  }
+}
+
+.time-input {
+  max-width: calc(50% - 5px);
+}
+
+.image-upload-container {
+  min-width: 100%;
+
+  &>img {
+    border-radius: 5px;
+    display: block;
+    margin: 15px 8px 20px;
+    outline: 2px solid #000;
+    outline-offset: 5px;
+    width: 40%;
+    min-width: 320px;
+    min-height: 200px;
+  }
+}
+
+@media only screen and (min-width: 640px) {
+  .input-group {
+    &>.time-input {
+      &:nth-child(2) {
+        margin-right: 10px;
+      }
+
+      &:nth-child(1),
+      &:nth-child(2) {
+        margin-bottom: 0;
+      }
+    }
+
+    &>.button__container {
+      &:not(:first-child)>.button {
+        margin-top: 20px;
+      }
+
+      &:not(:last-child)>.button {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  .time-input {
+    max-width: calc(25% - 8px);
+  }
+}
+
+@media only screen and (min-width: 904px) {
+  .input-group {
+    &>.image-upload-container:nth-child(1) {
+      margin-right: 10px;
+    }
+  }
+
+  .image-upload-container {
+    min-width: calc(50% - 5px);
+    max-width: calc(50% - 5px);
+  }
 }

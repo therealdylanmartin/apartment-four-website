@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
-
 import { AdminUserProvider } from './context/admin-user.context';
-import { RecipesProvider } from './context/recipes.context';
+
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
@@ -14,9 +13,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <AdminUserProvider>
-        <RecipesProvider>
-          <App />
-        </RecipesProvider>
+        <App />
       </AdminUserProvider>
     </BrowserRouter>
   </React.StrictMode>
