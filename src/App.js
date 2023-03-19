@@ -1,13 +1,14 @@
 import { Routes, Route } from 'react-router-dom';
+import { useAuth } from './context/admin-user.context';
 import ABOUT_INFO from './data/about-info-data.json';
 
 // Page/Route components
+import ProtectedRoute from './routes/protected-route/protected-route.component';
 import GlobalElements from './routes/global-elements/global-elements.component';
 import Home from './routes/home/home.component';
 import Recipes from './routes/recipes/recipes.component';
 import Recipe from './routes/recipe/recipe.component';
 import EditRecipe from './routes/edit-recipe/edit-recipe.component';
-// import CreateRecipesData from './routes/create-recipes-data/create-recipes-data.component';
 import Admin from './routes/admin/admin';
 
 // Shoelace Style UI
@@ -19,6 +20,7 @@ setBasePath('https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0/dist/')
 
 // Build app
 const App = () => {
+  const { currentUser } = useAuth();
   // Use dummy 'About Me' info
   const aboutInfo = ABOUT_INFO;
 
@@ -60,8 +62,11 @@ const App = () => {
           />
           <Route
             path="new"
+            exact
             element={
-              <EditRecipe />
+              <ProtectedRoute currentUser={currentUser}>
+                <EditRecipe />
+              </ProtectedRoute>
             }
           />
           <Route path=":recipeId/">
@@ -74,24 +79,20 @@ const App = () => {
             <Route
               path="edit"
               element={
-                <EditRecipe />
+                <ProtectedRoute currentUser={currentUser}>
+                  <EditRecipe />
+                </ProtectedRoute>
               }
             />
           </Route>
-          {/* <Route
-            path="create-database"
-            element={
-              <CreateRecipesData />
-            }
-          /> */}
         </Route>
+        <Route
+          path="admin"
+          element={
+            <Admin />
+          }
+        />
       </Route>
-      <Route
-        path="admin"
-        element={
-          <Admin />
-        }
-      />
     </Routes>
   )
 }

@@ -20,7 +20,6 @@ const RecipesGrid = ({ limit = 24, pagination }) => {
 
   if (renderedRecipes.length && limit && !pagination) {
     renderedRecipes = renderedRecipes.slice(0, limit);
-    console.log(renderedRecipes);
   } else if (pagination) {
     console.log('pagination set to true');
   }

@@ -1,15 +1,18 @@
 import { useState, useEffect } from 'react';
 import { useParams, useOutletContext } from 'react-router-dom';
+import { useAuth } from '../../context/admin-user.context';
 import { v4 as uuidv4 } from 'uuid';
 import { getAverageRating, renderStars, formatDate } from '../../utils/helper-functions.utils';
 
 import Section from '../../components/section/section.component';
+import CircleButton from '../../components/circle-button/circle-button.component';
 import SectionHeading from '../../components/section-heading/section-heading.component';
 import LoadingSpinner from '../../components/loading-spinner/loading-spinner.component';
 
 const Recipe = () => {
   // Get recipes from context
   const { recipes } = useOutletContext();
+  const { currentUser } = useAuth();
   // Initialize empty object for recipe state
   const [recipe, setRecipe] = useState({});
   // Get recipe id from params
@@ -59,9 +62,16 @@ const Recipe = () => {
     <main>
       <Section idTag="single-recipe">
 
-        {/* map through recipes array to display grid items */}
+        {/* check title to see if it is loaded and render recipe */}
         {recipe.title ?
-          <div>
+          <>
+            {currentUser
+              && <CircleButton
+                iconName="pencil-fill"
+                path={`/recipes/${recipeId}/edit`}
+                className="fixed push-left"
+              />
+            }
             <figure>
               <img
                 className="image--mobile"
@@ -105,7 +115,7 @@ const Recipe = () => {
                 </div>
               )
             })}
-          </div>
+          </>
           :
           <LoadingSpinner />
         }

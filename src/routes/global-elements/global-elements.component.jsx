@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Outlet } from 'react-router-dom';
+import { useLocation, Outlet } from 'react-router-dom';
+import { useAuth } from '../../context/admin-user.context';
 import { getRecipesAndDocuments } from '../../utils/firebase.utils';
 
 import Header from '../../components/header/header.components';
@@ -9,9 +10,26 @@ import SubscribeForm from '../../components/subscribe-form/subscribe-form.compon
 import Footer from '../../components/footer/footer.component';
 
 const GlobalElements = ({ socialMediums }) => {
-  // Set empty array for recipes
+  // set pathname to variable for useEffect hook
+  const location = useLocation();
+  const pathname = location.pathname;
+  // Get current user for outlet context
+  const { currentUser } = useAuth();
+  // Set empty object for recipes
   const [recipes, setRecipes] = useState({});
+  // Set boolean for recipes updated state
   const [areRecipesUpToDate, setAreRecipesUpToDate] = useState(false);
+  const [currentPathname, setCurrentPathname] = useState(pathname);
+
+  useEffect(() => {
+    // Update pathname state
+    setCurrentPathname(pathname);
+    // Scroll to top on link clicks
+    window.scrollTo({
+      top: 0,
+      behavior: 'instant'
+    })
+  }, [pathname])
 
   useEffect(() => {
     // Create function to fetch recipes from Firestore database
@@ -31,21 +49,29 @@ const GlobalElements = ({ socialMediums }) => {
 
   return (
     <>
-      <Header />
+      <Header
+        currentPathname={currentPathname}
+      />
       <Outlet context={{
+        currentUser,
         recipes,
-        setRecipes,
         areRecipesUpToDate,
         setAreRecipesUpToDate
       }} />
-      <Section idTag="subscribe">
-        <SectionHeading lines={['Sign Up For', 'Updates From', 'Apartment Four']} />
-        <SubscribeForm />
-      </Section>
-      <Footer
-        lines={['Follow Me']}
-        socialMediums={socialMediums}
-      />
+      {!currentPathname.includes('/admin')
+        && !currentPathname.includes('/recipes/new')
+        && !currentPathname.includes('/edit')
+        && <>
+          <Section idTag="subscribe">
+            <SectionHeading lines={['Sign Up For', 'Updates From', 'Apartment Four']} />
+            <SubscribeForm />
+          </Section>
+          <Footer
+            lines={['Follow Me']}
+            socialMediums={socialMediums}
+          />
+        </>
+      }
     </>
   )
 }

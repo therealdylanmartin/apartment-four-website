@@ -38,7 +38,7 @@ p+.button__container>.button {
 }
 
 .section--inverted>.button__container>.button,
-.button.button-inverted {
+.button.inverted {
   background-color: var(--color-secondary);
   border: 2px var(--color-secondary) solid;
   color: var(--color-primary);
@@ -50,11 +50,23 @@ p+.button__container>.button {
   }
 }
 
-.button.button-inverted {
+.button.inverted {
   border: 2px var(--color-primary) solid;
 }
 
-.button.button-cancel {
+.button.transparent:hover {
+  background-color: transparent;
+}
+
+.button.width-auto {
+  min-width: auto;
+}
+
+.button.no-margin {
+  margin: 0;
+}
+
+.button.cancel {
   background-color: var(--color-red);
   border: 2px var(--color-red) solid;
   color: var(--color-secondary);

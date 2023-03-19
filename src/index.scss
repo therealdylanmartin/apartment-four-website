@@ -5,6 +5,7 @@
   --color-secondary: #f7f6ef;
   --color-star: #F0D020;
   --color-near-black: #1c1c1c;
+  --color-gray: #d6d6d6;
   --color-red: #b50717;
   // theme fonts
   --font-display: mostra-nuova, sans-serif;
@@ -41,7 +42,10 @@ footer {
 
 section {
   padding-top: 80px;
-  padding-bottom: 80px;
+
+  &:last-child {
+    padding-bottom: 80px;
+  }
 
   &>*:not(img):not(figure) {
     margin-left: 15px;

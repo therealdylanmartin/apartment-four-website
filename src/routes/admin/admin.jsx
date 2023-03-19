@@ -1,20 +1,12 @@
-import { useContext } from 'react';
-import { AdminUserContext } from '../../context/admin-user.context';
-import {
-  signInWithGooglePopup,
-  signOutAdminUser
-} from '../../utils/firebase.utils';
+import { useOutletContext } from 'react-router-dom';
 
 import Section from '../../components/section/section.component';
 import SectionHeading from '../../components/section-heading/section-heading.component';
+import EditRecipesList from '../../components/edit-recipes-list/edit-recipes-list.component';
 import Button from '../../components/button/button.component';
 
 const Admin = () => {
-  const { currentUser } = useContext(AdminUserContext);
-
-  const signInAdminUser = async () => {
-    await signInWithGooglePopup();
-  }
+  const { currentUser } = useOutletContext();
 
   return (
     <>
@@ -24,22 +16,28 @@ const Admin = () => {
             lines={['Sign In for Admin Access']}
             centered
           />
-          <Button
-            buttonText="Sign in with Google"
-            onClickHandler={signInAdminUser}
-          />
+
         </Section>
         :
-        <Section idTag="admin-dashboard">
-          <SectionHeading
-            lines={['Admin Dashboard']}
-            centered
-          />
-          <Button
-            buttonText="Sign Out"
-            onClickHandler={signOutAdminUser}
-          />
-        </Section>
+        <>
+          <Section idTag="admin-dashboard">
+            <SectionHeading
+              lines={['Admin Dashboard']}
+              centered
+            />
+            <Button
+              path="/recipes/new"
+              buttonText="Add New Recipe"
+            />
+            <EditRecipesList />
+          </Section>
+          <Section idTag="edit-profile">
+            <SectionHeading
+              lines={['Edit Profile Info']}
+              centered
+            />
+          </Section>
+        </>
       }
     </>
   )
