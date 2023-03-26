@@ -1,6 +1,5 @@
 .grid__tile {
   background-color: #ccc;
-  position: relative;
 }
 
 .recipe-skeleton__spinner {
@@ -40,4 +39,49 @@
   height: 20px;
   margin-top: 8.5px;
   max-width: 80%;
+}
+
+@media only screen and (min-width: 816px) {
+  .recipe-skeleton__time {
+    height: 17px;
+    width: 35px;
+  }
+
+  .recipe-skeleton__rating {
+    height: 21px;
+    width: 112px;
+  }
+
+  .recipe-skeleton__star {
+    height: 21px;
+    width: 21px;
+  }
+
+  .recipe-skeleton__title {
+    height: 22px;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .recipe-skeleton__time {
+    height: 17px;
+    left: 10px;
+    width: 40px;
+  }
+
+  .recipe-skeleton__rating {
+    height: 24px;
+    right: 11px;
+    width: 126px;
+  }
+
+  .recipe-skeleton__star {
+    height: 24px;
+    width: 24px;
+  }
+
+  .recipe-skeleton__title {
+    height: 25px;
+    margin-top: 12px;
+  }
 }

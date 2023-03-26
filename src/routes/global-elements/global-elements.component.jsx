@@ -51,6 +51,7 @@ const GlobalElements = ({ socialMediums }) => {
     <>
       <Header
         currentPathname={currentPathname}
+        currentUser={currentUser}
       />
       <Outlet context={{
         currentUser,

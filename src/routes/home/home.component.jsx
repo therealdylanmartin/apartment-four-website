@@ -3,6 +3,8 @@ import SectionHeading from '../../components/section-heading/section-heading.com
 import RecipesGrid from '../../components/recipes-grid/recipes-grid.component';
 import Button from '../../components/button/button.component';
 
+import './home.styles.scss';
+
 const Home = ({ aboutInfo }) => {
   const { image, description } = aboutInfo;
 
@@ -23,21 +25,26 @@ const Home = ({ aboutInfo }) => {
         inverted
       >
         <SectionHeading lines={['The Girl From', 'Apartment Four']} />
-        <figure>
-          <img
-            className="about-me__img"
-            src={image.src}
-            alt={image.altText}
-          />
-        </figure>
-        <p className="p">
-          {description}
-        </p>
-        <Button
-          buttonText="Get in Touch"
-          path="mailto:rachael@fromapartmentfour.com"
-          iconName="envelope-at"
-        />
+        <div className="about-me__composition">
+          <figure>
+            <img
+              className="about-me__img"
+              src={image.src}
+              alt={image.altText}
+            />
+          </figure>
+          <div className="content--right">
+            <p className="p">
+              {description}
+            </p>
+            <Button
+              buttonText="Get in Touch"
+              path="mailto:rachael@fromapartmentfour.com"
+              iconName="envelope-at"
+              className="inverted"
+            />
+          </div>
+        </div>
       </Section>
     </main>
   )

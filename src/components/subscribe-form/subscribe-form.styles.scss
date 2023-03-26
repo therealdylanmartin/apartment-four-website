@@ -1,6 +1,15 @@
+.section__subscribe {
+  min-height: 50vh;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
+}
+
 .subscribe-form {
-  max-width: 500px;
   text-align: center;
+}
+
+.subscribe-field {
 
   &>label {
     display: block;
@@ -9,8 +18,7 @@
     text-align: left;
   }
 
-  &>input[type="email"],
-  &>input[type="text"] {
+  &>input[type="email"] {
     border: 2px solid var(--color-near-black);
     border-radius: 10px;
     color: var(--color-near-black);
@@ -22,6 +30,30 @@
 
     &:focus-visible {
       outline-color: var(--color-primary);
+    }
+  }
+}
+
+@media only screen and (min-width: 816px) {
+  .subscribe-form {
+    display: flex;
+
+    &>.button {
+      width: 30px;
+      margin: 25px 0 20px 15px;
+    }
+  }
+
+  .subscribe-field {
+    width: 100%;
+
+    &>label {
+      font-size: 1.12em;
+      height: 21px;
+    }
+
+    &>input[type="email"] {
+      font-size: 1.35em;
     }
   }
 }
