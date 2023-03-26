@@ -44,10 +44,10 @@ export const renderStars = score => {
   // return the allStars array of jsx elements
   return (
     <SlRating
+      className="sl-rating"
       label="Rating"
       precision="0.5"
       value={fullStars}
-      style={{ '--symbol-size': '1rem' }}
       readonly
     >
     </SlRating>

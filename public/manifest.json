@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Apartment Four",
+  "name": "Apartment Four | Plant-Based Recipes",
   "icons": [
     {
       "src": "assets/images/favicons/favicon.ico",
@@ -8,18 +8,13 @@
       "type": "image/x-icon"
     },
     {
-      "src": "assets/images/favicons/logo192.png",
+      "src": "assets/images/favicons/favicon-196x196.png",
       "type": "image/png",
       "sizes": "192x192"
-    },
-    {
-      "src": "assets/images/favicons/logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#316622",
+  "background_color": "#f7f6ef"
 }

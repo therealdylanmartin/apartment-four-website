@@ -42,10 +42,7 @@ footer {
 
 section {
   padding-top: 80px;
-
-  &:last-child {
-    padding-bottom: 80px;
-  }
+  padding-bottom: 80px;
 
   &>*:not(img):not(figure) {
     margin-left: 15px;

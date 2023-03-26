@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useAuth } from '../../context/admin-user.context';
 import {
   signInWithGooglePopup,
   signOutAdminUser
@@ -12,9 +11,8 @@ import CircleButton from '../circle-button/circle-button.component';
 
 import './header.styles.scss';
 
-const Header = ({ currentPathname }) => {
+const Header = ({ currentPathname, currentUser }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { currentUser } = useAuth();
 
   const signInAdminUser = async () => {
     await signInWithGooglePopup();
