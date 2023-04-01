@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 
-const SectionHeading = ({ lines, centered }) => {
+const SectionHeading = ({ lines, centered, isTitle, itemProp = null }) => {
 
   const getInnerContent = () => {
     let innerContent = [];
@@ -15,11 +15,23 @@ const SectionHeading = ({ lines, centered }) => {
   }
 
   return (
-    <h2 className={
-      `h2${centered ? ' text-center' : ''}`
-    }>
-      {getInnerContent()}
-    </h2>
+    <>
+      {isTitle ?
+        <h1
+          itemProp={itemProp}
+          className={`h2${centered ? ' text-center' : ''}`}
+        >
+          {getInnerContent()}
+        </h1>
+        :
+        <h2
+          itemProp={itemProp}
+          className={`h2${centered ? ' text-center' : ''}`}
+        >
+          {getInnerContent()}
+        </h2>
+      }
+    </>
   )
 }
 

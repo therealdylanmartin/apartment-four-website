@@ -5,8 +5,12 @@
   --color-secondary: #f7f6ef;
   --color-star: #F0D020;
   --color-near-black: #1c1c1c;
-  --color-gray: #d6d6d6;
+  --color-gray: #b8b8b8;
+  --color-gray-light: #d6d6d6;
+  --color-gray-dark: #777;
   --color-red: #b50717;
+  --color-primary-selection: rgba(49, 102, 34, .8);
+  --color-secondary-selection: rgba(247, 246, 239, .8);
   // theme fonts
   --font-display: mostra-nuova, sans-serif;
   --font-heading: desire-pro, serif;
@@ -33,6 +37,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
   overflow-x: hidden;
+
+  & *::selection {
+    color: var(--color-secondary);
+    background-color: var(--color-primary-selection);
+  }
 }
 
 section,
@@ -60,6 +69,11 @@ section {
     margin-top: 20px;
     margin-bottom: 20px;
   }
+
+  &>h1,
+  &:first-child>h2:first-child {
+    margin-top: 0;
+  }
 }
 
 figure {
@@ -82,6 +96,11 @@ figure>img {
   &>ol,
   &>ul {
     color: var(--color-secondary);
+  }
+
+  & *::selection {
+    color: var(--color-primary);
+    background-color: var(--color-secondary-selection);
   }
 }
 
@@ -219,5 +238,20 @@ figure>img {
   .image-upload-container {
     min-width: calc(50% - 5px);
     max-width: calc(50% - 5px);
+  }
+}
+
+@media only print {
+
+  header,
+  figure,
+  img,
+  footer,
+  .section__subscribe,
+  .button__cointainer,
+  .button,
+  .circle-button,
+  .sl-tooltip {
+    display: none !important;
   }
 }
