@@ -1,0 +1,40 @@
+.sl-dialog {
+  &::part(title) {
+    color: var(--color-primary);
+    font-family: var(--font-display);
+    font-size: 1.8em;
+    font-weight: 800;
+    text-transform: lowercase;
+  }
+
+  &::part(close-button) {
+    color: var(--color-red);
+    font-size: 1.4em;
+  }
+
+  &::part(close-button__base):hover,
+  &::part(close-button__base):focus-visible {
+    color: var(--color-red);
+  }
+
+  &::part(body) {
+    padding-bottom: 60px;
+  }
+
+  &.content-center::part(body) {
+    text-align: center;
+  }
+}
+
+@media only screen and (min-width: 420px) {
+  .sl-dialog {
+    &::part(title) {
+      font-size: 2.4em;
+      padding-left: 35px;
+    }
+
+    &::part(close-button) {
+      font-size: 1.8em;
+    }
+  }
+}

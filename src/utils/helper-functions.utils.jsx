@@ -29,16 +29,11 @@ export const renderStars = score => {
   // round down for number of full stars
   let fullStars = Math.floor(score);
   // grab any partial star data after decimal
-  const partialStar = Number(score.toString().split('.')[1][0]);
+  const partialStar = Number(score.toString().split('.')[1].substring(0, 2));
 
   // check for partialStar data
   if (partialStar) {
-    // if partialStar exists, check value to render another full or half star, if any
-    if (partialStar > 7) {
-      fullStars++;
-    } else if (partialStar > 2) {
-      fullStars += .5;
-    }
+    fullStars += (partialStar / 100);
   }
 
   // return the allStars array of jsx elements
@@ -46,7 +41,7 @@ export const renderStars = score => {
     <SlRating
       className="sl-rating"
       label="Rating"
-      precision="0.5"
+      precision="0.01"
       value={fullStars}
       readonly
     >

@@ -1,7 +1,3 @@
-.grid__tile {
-  background-color: #ccc;
-}
-
 .recipe-skeleton__spinner {
   align-items: center;
   display: flex;
@@ -11,30 +7,6 @@
   width: 100%;
 }
 
-.recipe-skeleton__time {
-  height: 15px;
-  position: absolute;
-  bottom: 14px;
-  left: 7px;
-  width: 30px;
-}
-
-.recipe-skeleton__rating {
-  display: flex;
-  height: 18px;
-  justify-content: space-between;
-  position: absolute;
-  bottom: 11px;
-  right: 7px;
-  width: 98px;
-}
-
-.recipe-skeleton__star {
-  clip-path: polygon(50% 0%, 63% 31%, 98% 35%, 72% 57%, 79% 91%, 50% 75%, 21% 91%, 27% 58%, 2% 35%, 37% 32%);
-  height: 18px;
-  width: 18px;
-}
-
 .recipe-skeleton__title {
   height: 20px;
   margin-top: 8.5px;
@@ -42,44 +14,12 @@
 }
 
 @media only screen and (min-width: 816px) {
-  .recipe-skeleton__time {
-    height: 17px;
-    width: 35px;
-  }
-
-  .recipe-skeleton__rating {
-    height: 21px;
-    width: 112px;
-  }
-
-  .recipe-skeleton__star {
-    height: 21px;
-    width: 21px;
-  }
-
   .recipe-skeleton__title {
     height: 22px;
   }
 }
 
 @media only screen and (min-width: 1000px) {
-  .recipe-skeleton__time {
-    height: 17px;
-    left: 10px;
-    width: 40px;
-  }
-
-  .recipe-skeleton__rating {
-    height: 24px;
-    right: 11px;
-    width: 126px;
-  }
-
-  .recipe-skeleton__star {
-    height: 24px;
-    width: 24px;
-  }
-
   .recipe-skeleton__title {
     height: 25px;
     margin-top: 12px;

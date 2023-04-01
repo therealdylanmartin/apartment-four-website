@@ -41,7 +41,7 @@ const EditRecipe = () => {
       totalTime: ''
     },
     ingredients: [],
-    directions: [],
+    preparation: [],
     imageForMobile: {
       src: '',
       altText: ''
@@ -94,7 +94,7 @@ const EditRecipe = () => {
     description,
     time,
     ingredients,
-    directions,
+    preparation,
     imageForMobile,
     imageForDesktop,
     createdAt,
@@ -124,20 +124,20 @@ const EditRecipe = () => {
     return ingredientsText;
   }
 
-  // Create function to map array of directions for displaying in textarea
-  const createDirectionsText = (directions) => {
+  // Create function to map array of preparation for displaying in textarea
+  const createPreparationText = (preparation) => {
     // Initialize empty string to build textarea content
-    let directionsText = '';
+    let preparationText = '';
 
-    directions.forEach(({ heading, description }, i) => {
+    preparation.forEach(({ heading, description }, i) => {
       // If array is at first index, render heading without line breaks at beginning
       i === 0 ?
-        directionsText += `H: ${heading}\n\n${description.join('\n\n')}` :
+        preparationText += `H: ${heading}\n\n${description.join('\n\n')}` :
         // If past first index, render additional line breaks before heading
-        directionsText += `\n\nH: ${heading}\n\n${description.join('\n\n')}`;
+        preparationText += `\n\nH: ${heading}\n\n${description.join('\n\n')}`;
     })
 
-    return directionsText;
+    return preparationText;
   }
 
   // Handle text inputs to update associated 'recipe' state property
@@ -179,9 +179,9 @@ const EditRecipe = () => {
         })
         recipe.ingredients = ingredients;
         break;
-      // If directions property, create array based on double line breaks and heading signifier
-      case 'directions':
-        const directions = value.slice(3).split('\n\nH: ').map(step => {
+      // If preparation property, create array based on double line breaks and heading signifier
+      case 'preparation':
+        const preparation = value.slice(3).split('\n\nH: ').map(step => {
           // Initialize object to store each step
           const stepObject = { heading: '', description: [] };
           // Create array based on double line breaks
@@ -194,7 +194,7 @@ const EditRecipe = () => {
           })
           return stepObject;
         })
-        recipe.directions = directions;
+        recipe.preparation = preparation;
         break;
       default:
         console.error('What is this input?', event.srcElement.name);
@@ -407,10 +407,10 @@ const EditRecipe = () => {
             <div className="input-single">
               <FormTextarea
                 rows={12}
-                label="Directions"
-                name="directions"
-                placeholder="Add directions with two line breaks between headings and paragraphs"
-                value={createDirectionsText(directions)}
+                label="Preparation"
+                name="preparation"
+                placeholder="Add preparation with two line breaks between headings and paragraphs"
+                value={createPreparationText(preparation)}
                 helpText="Create heading by adding 'H:' at the beginning of a line."
                 onChangeHandler={handleTextareaChange}
               />

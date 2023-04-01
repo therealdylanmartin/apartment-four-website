@@ -41,6 +41,7 @@ const Header = ({ currentPathname, currentUser }) => {
               && <CircleButton
                 iconName="person-check-fill"
                 onClickHandler={signInAdminUser}
+                tooltip="sign in"
               />
             }
             <button className="sandwich-nav__toggle" onClick={() => setIsOpen(true)}>
@@ -96,6 +97,7 @@ const Header = ({ currentPathname, currentUser }) => {
           iconName="person-fill-slash"
           onClickHandler={signOutAdminUser}
           className="fixed cancel"
+          tooltip="sign out"
         />
       }
     </>

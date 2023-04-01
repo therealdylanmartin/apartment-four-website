@@ -32,6 +32,30 @@ p+.button__container>.button {
     color: var(--color-primary);
   }
 
+  &.transparent:hover {
+    background-color: transparent;
+  }
+
+  &.width-auto {
+    min-width: auto;
+  }
+
+  &.no-margin {
+    margin: 0;
+  }
+
+  &.cancel {
+    background-color: var(--color-red);
+    border: 2px var(--color-red) solid;
+    color: var(--color-secondary);
+
+    &:hover,
+    &:active {
+      background-color: var(--color-secondary);
+      color: var(--color-red);
+    }
+  }
+
   & sl-icon {
     margin-left: 10px;
   }
@@ -47,29 +71,5 @@ p+.button__container>.button {
   &:active {
     background-color: var(--color-primary);
     color: var(--color-secondary);
-  }
-}
-
-.button.transparent:hover {
-  background-color: transparent;
-}
-
-.button.width-auto {
-  min-width: auto;
-}
-
-.button.no-margin {
-  margin: 0;
-}
-
-.button.cancel {
-  background-color: var(--color-red);
-  border: 2px var(--color-red) solid;
-  color: var(--color-secondary);
-
-  &:hover,
-  &:active {
-    background-color: var(--color-secondary);
-    color: var(--color-red);
   }
 }
