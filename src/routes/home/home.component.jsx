@@ -1,5 +1,3 @@
-import { Helmet } from "react-helmet";
-
 import Section from '../../components/section/section.component';
 import SectionHeading from '../../components/section-heading/section-heading.component';
 import RecipesGrid from '../../components/recipes-grid/recipes-grid.component';
@@ -12,15 +10,6 @@ const Home = ({ aboutInfo }) => {
 
   return (
     <main>
-      <Helmet>
-        <title>Apartment Four | A Place for Recipes</title>
-        <meta
-          name="description"
-          content="I develop recipes with pant-based whole food ingredients for the busy minded modern foodie. These delightful and delicious recipes prove you can live a healthy lifestyle without sacrificing on flavor. You can have your cake... and eat it too!"
-        />
-        <link rel="canonical" href="https://fromapartmentfour.com/" />
-        <meta property="og:type" content="website" />
-      </Helmet>
       <Section idTag="recipes">
         <SectionHeading lines={['New Recipes From', 'Apartment Four']} />
         <RecipesGrid
