@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, useOutletContext } from 'react-router-dom';
+import { Helmet } from "react-helmet";
 import { v4 as uuidv4 } from 'uuid';
 import { SlIcon } from '@shoelace-style/shoelace/dist/react';
 import { getAverageRating, renderStars, formatDate } from '../../utils/helper-functions.utils';
@@ -71,6 +72,18 @@ const Recipe = () => {
         {/* check title to see if it is loaded and render recipe */}
         {recipe.title ?
           <>
+            <Helmet>
+              <title>{title} | Apartment Four</title>
+              <meta
+                name="description"
+                content={description.join(' ')}
+              />
+              <link rel="canonical" href={`https://fromapartmentfour.com/recipes/${recipe.recipeId.replaceAll(' ', '-')}`} />
+              <meta property="og:url" content={`https://fromapartmentfour.com/recipes/${recipe.recipeId.replaceAll(' ', '-')}`} />
+              <meta property="og:title" content={`${title} | Apartment Four`} />
+              <meta property="og:description" content={description.join(' ')} />
+              <meta property="og:image" content={imageForDesktop.src} />
+            </Helmet>
             <SectionHeading
               itemProp="name"
               lines={[title]}
