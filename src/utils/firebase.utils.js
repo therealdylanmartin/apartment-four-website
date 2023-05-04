@@ -30,13 +30,7 @@ import {
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: 'AIzaSyBBumh2rzwpB8JzvbOVRfp04FKoCD2XFfQ',
-  authDomain: 'apartment-four.firebaseapp.com',
-  projectId: 'apartment-four',
-  storageBucket: 'apartment-four.appspot.com',
-  messagingSenderId: '771213336216',
-  appId: '1:771213336216:web:8d7895160d2edb1a703aed',
-  measurementId: 'G-2FWM3M9TKR'
+  // firebase config needed for app to work
 };
 
 // Initialize Firebase
